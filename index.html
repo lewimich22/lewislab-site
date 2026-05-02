@@ -1,1 +1,407 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lewis Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ── */
+    :root {
+      --ink:       #0D0D0D;
+      --moss:      #5C8A4E;
+      --parchment: #F5F4F0;
+      --stone:     #888880;
+      --white:     #FFFFFF;
+
+      --display: 'Neue Haas Grotesk Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --body:    'Inter', sans-serif;
+    }
+
+    /* ── Base ── */
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2.5rem 5rem;
+      padding-top: 6rem;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: var(--display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 14ch;
+      margin-bottom: 2rem;
+    }
+
+    .hero-sub {
+      font-family: var(--body);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--stone);
+      max-width: 42ch;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .hero-cta:hover { background: var(--moss); }
+
+    /* ── Divider ── */
+    .rule {
+      border: none;
+      border-top: 1px solid rgba(13,13,13,0.1);
+      margin: 0 2.5rem;
+    }
+
+    /* ── Section base ── */
+    section { padding: 6rem 2.5rem; }
+
+    .section-label {
+      font-family: var(--body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 3rem;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-heading {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      color: var(--stone);
+      line-height: 1.8;
+    }
+
+    .about-body p + p { margin-top: 1.25rem; }
+
+    /* ── Services ── */
+    .services { background: var(--ink); color: var(--white); }
+    .services .section-label { color: var(--stone); }
+
+    .services-heading {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4rem;
+      max-width: 20ch;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.04);
+      padding: 2.5rem 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .service-num {
+      font-family: var(--display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--stone);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-title {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-heading {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-sub {
+      font-size: 0.9rem;
+      color: var(--stone);
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      font-family: var(--body);
+      font-size: 0.85rem;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid rgba(13,13,13,0.12);
+      padding: 0.85rem 1rem;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--ink);
+    }
+
+    .contact-form textarea { min-height: 120px; }
+
+    .contact-form button {
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .contact-form button:hover { background: var(--moss); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid rgba(13,13,13,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer span {
+      font-size: 0.7rem;
+      color: var(--stone);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero { padding: 6rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .rule { margin: 0 1.5rem; }
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="#">Lewis Lab</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-eyebrow">Lewis Lab — Consulting</p>
+    <h1 class="hero-headline">Clarity inside the operation.</h1>
+    <p class="hero-sub">We find what's working, what isn't, and what to do about it. Diagnostic-first consulting for businesses ready to move with precision.</p>
+    <a class="hero-cta" href="#contact">Start a conversation</a>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- About -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <h2 class="about-heading">Built for operators, not audiences.</h2>
+      <div class="about-body">
+        <p>Lewis Lab works with leadership teams who want honest analysis, not polished reports that confirm what they already think. We go inside the operation — the data, the process, the people — and come back with something useful.</p>
+        <p>Our work starts with a 30-day diagnostic. No assumptions, no generic frameworks. Just a clear read on where you are and what the real leverage points are.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <p class="section-label">What we do</p>
+    <h2 class="services-heading">Focused work. Real results.</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <h3 class="service-title">Operational Diagnostic</h3>
+        <p class="service-desc">A 30-day deep look at your operation. DMS, CRM, process, and people. You'll know exactly where the gaps are and what they're costing you.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <h3 class="service-title">Performance Strategy</h3>
+        <p class="service-desc">Data-driven roadmaps built for your specific situation. No off-the-shelf playbooks. Strategy that accounts for your market, your team, your goals.</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <h3 class="service-title">Implementation Support</h3>
+        <p class="service-desc">We don't hand off a deck and disappear. Lewis Lab stays in the work with you — tracking, adjusting, and pushing until the numbers move.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-heading">Let's talk about your operation.</h2>
+        <p class="contact-sub">If you're running a business and want an honest look at where things stand, reach out. No pitch, no pressure.</p>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="text" placeholder="Company" />
+        <textarea placeholder="What's on your mind?"></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span>© 2026 Lewis Lab</span>
+    <span>lewislab.io</span>
+  </footer>
+
+</body>
+</html>

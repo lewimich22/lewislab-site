@@ -32,7 +32,7 @@
       --white: #FFFFFF;
       --display: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       --body: "Inter", sans-serif;
-      --pad: 3.5rem;
+      --pad: 3.25rem;
     }
 
     html {
@@ -96,18 +96,18 @@
     }
 
     .hero {
-      padding: 7.5rem var(--pad) 3.5rem;
+      padding: 6.75rem var(--pad) 3rem;
     }
 
     .hero-headline {
       font-family: var(--display);
-      font-size: clamp(3rem, 5vw, 5.75rem);
+      font-size: clamp(3rem, 5.1vw, 5.75rem);
       font-weight: 700;
-      line-height: 1.03;
+      line-height: 1.02;
       letter-spacing: -0.035em;
       color: var(--ink);
-      max-width: 1120px;
-      margin-bottom: 1.4rem;
+      max-width: 17ch;
+      margin-bottom: 1.25rem;
     }
 
     .hero-sub {
@@ -116,7 +116,7 @@
       color: var(--stone);
       line-height: 1.65;
       max-width: 56ch;
-      margin-bottom: 2.25rem;
+      margin-bottom: 1.75rem;
     }
 
     .hero-cta {
@@ -146,7 +146,7 @@
     }
 
     .section {
-      padding: 3rem var(--pad);
+      padding: 2.75rem var(--pad);
     }
 
     .section-label {
@@ -162,7 +162,7 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4.5rem;
+      gap: 3.75rem;
       align-items: start;
     }
 
@@ -172,7 +172,7 @@
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
-      max-width: 680px;
+      max-width: 14ch;
     }
 
     .about-body {
@@ -200,7 +200,7 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 2rem;
-      max-width: 560px;
+      max-width: 14ch;
     }
 
     .services-grid {
@@ -212,7 +212,7 @@
 
     .service-card {
       background: var(--ink);
-      padding: 2.4rem 2rem;
+      padding: 2.1rem 1.8rem;
     }
 
     .service-num {
@@ -242,7 +242,7 @@
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4.5rem;
+      gap: 3.75rem;
       align-items: start;
     }
 
@@ -252,7 +252,6 @@
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
-      max-width: 680px;
     }
 
     .contact-form {
@@ -363,30 +362,13 @@
       }
 
       .hero-headline {
-        font-size: clamp(2.45rem, 10.5vw, 4rem);
-        line-height: 1.02;
+        font-size: clamp(2.3rem, 8.5vw, 3rem);
         max-width: 100%;
-        letter-spacing: -0.04em;
       }
 
       .hero-sub {
         max-width: 100%;
         font-size: 1rem;
-        line-height: 1.65;
-      }
-
-      .about-heading,
-      .services-heading,
-      .contact-heading {
-        font-size: clamp(2rem, 8vw, 3rem);
-        line-height: 1.06;
-        max-width: 100%;
-      }
-
-      .about-body,
-      .service-desc {
-        font-size: 1rem;
-        line-height: 1.65;
       }
 
       .section {
@@ -420,6 +402,46 @@
         gap: 0.5rem;
         text-align: center;
       }
+
+      .hero-headline {
+        font-size: clamp(2.35rem, 9.5vw, 3.5rem);
+        line-height: 1.04;
+        letter-spacing: -0.045em;
+        margin-bottom: 1rem;
+      }
+
+      .hero-sub {
+        font-size: 1rem;
+        line-height: 1.55;
+        margin-bottom: 1.75rem;
+      }
+
+      .about-heading,
+      .services-heading,
+      .contact-heading {
+        font-size: clamp(1.85rem, 7.5vw, 2.65rem);
+        line-height: 1.08;
+      }
+
+      .services-heading {
+        margin-bottom: 1.5rem;
+      }
+
+      .about-body {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .service-desc {
+        font-size: 0.98rem;
+        line-height: 1.6;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 0.8rem 1rem;
+      }
+
     }
   </style>
 </head>
@@ -435,7 +457,7 @@
 
   <main>
     <section class="hero" aria-labelledby="hero-heading">
-      <h1 class="hero-headline" id="hero-heading">Your business is running.<br />But is it actually performing?</h1>
+      <h1 class="hero-headline" id="hero-heading">Your business is running. But is it actually performing?</h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
       <a class="hero-cta" href="#contact">Start with a diagnostic</a>
     </section>

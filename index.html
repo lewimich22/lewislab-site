@@ -101,13 +101,13 @@
 
     .hero-headline {
       font-family: var(--display);
-      font-size: clamp(3rem, 5.5vw, 6.25rem);
+      font-size: clamp(3rem, 5vw, 5.75rem);
       font-weight: 700;
-      line-height: 1.02;
+      line-height: 1.03;
       letter-spacing: -0.035em;
       color: var(--ink);
-      max-width: 17ch;
-      margin-bottom: 1.5rem;
+      max-width: 1120px;
+      margin-bottom: 1.4rem;
     }
 
     .hero-sub {
@@ -172,7 +172,7 @@
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
-      max-width: 14ch;
+      max-width: 680px;
     }
 
     .about-body {
@@ -200,7 +200,7 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 2rem;
-      max-width: 14ch;
+      max-width: 560px;
     }
 
     .services-grid {
@@ -252,6 +252,7 @@
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
+      max-width: 680px;
     }
 
     .contact-form {
@@ -362,13 +363,30 @@
       }
 
       .hero-headline {
-        font-size: clamp(2.3rem, 8.5vw, 3rem);
+        font-size: clamp(2.45rem, 10.5vw, 4rem);
+        line-height: 1.02;
         max-width: 100%;
+        letter-spacing: -0.04em;
       }
 
       .hero-sub {
         max-width: 100%;
         font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .about-heading,
+      .services-heading,
+      .contact-heading {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.06;
+        max-width: 100%;
+      }
+
+      .about-body,
+      .service-desc {
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
       .section {
@@ -417,7 +435,7 @@
 
   <main>
     <section class="hero" aria-labelledby="hero-heading">
-      <h1 class="hero-headline" id="hero-heading">Your business is running. But is it actually performing?</h1>
+      <h1 class="hero-headline" id="hero-heading">Your business is running.<br />But is it actually performing?</h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
       <a class="hero-cta" href="#contact">Start with a diagnostic</a>
     </section>

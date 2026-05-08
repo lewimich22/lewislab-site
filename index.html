@@ -95,6 +95,15 @@
       color: var(--ink);
     }
 
+
+    .desktop-break {
+      display: block;
+    }
+
+    .mobile-break {
+      display: none;
+    }
+
     .hero {
       padding: 6.75rem var(--pad) 3rem;
     }
@@ -151,12 +160,12 @@
 
     .section-label {
       font-family: var(--body);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--stone);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .about-grid {
@@ -442,6 +451,43 @@
         padding: 0.8rem 1rem;
       }
 
+
+      .desktop-break {
+        display: none;
+      }
+
+      .mobile-break {
+        display: inline;
+      }
+
+      .hero-headline {
+        font-size: clamp(2.55rem, 10.2vw, 3.55rem);
+        line-height: 1.03;
+        letter-spacing: -0.05em;
+        max-width: 100%;
+        margin-bottom: 1.15rem;
+      }
+
+      .hero-sub {
+        font-size: 1.08rem;
+        line-height: 1.58;
+        margin-bottom: 1.9rem;
+      }
+
+      .section-label {
+        font-size: 0.88rem;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+      }
+
+      .about-heading,
+      .services-heading,
+      .contact-heading {
+        font-size: clamp(2.05rem, 8.4vw, 2.8rem);
+        line-height: 1.07;
+        letter-spacing: -0.04em;
+      }
+
     }
   </style>
 </head>
@@ -457,7 +503,7 @@
 
   <main>
     <section class="hero" aria-labelledby="hero-heading">
-      <h1 class="hero-headline" id="hero-heading">Your business is running. But is it actually performing?</h1>
+      <h1 class="hero-headline" id="hero-heading">Your business is running.<br class="desktop-break" /><span class="mobile-break"> </span>But is it actually performing?</h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
       <a class="hero-cta" href="#contact">Start with a diagnostic</a>
     </section>

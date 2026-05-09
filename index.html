@@ -68,7 +68,7 @@
     }
 
     .nav-logo-mark {
-      height: 36px;
+      height: 44px;
       width: auto;
       display: block;
       flex-shrink: 0;
@@ -76,17 +76,17 @@
 
     .nav-logo-divider {
       width: 1px;
-      height: 28px;
+      height: 34px;
       background: var(--ink);
-      margin: 0 16px;
+      margin: 0 18px;
       flex-shrink: 0;
     }
 
     .nav-logo-text {
       font-family: var(--wordmark);
       font-weight: 500;
-      font-size: 18px;
-      letter-spacing: 0.2em;
+      font-size: 20px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink);
       line-height: 1;
@@ -110,9 +110,31 @@
       transition: color 0.2s;
     }
 
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.35rem;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.22s ease;
+    }
+
     .nav-links a:hover,
     .nav-links a:focus {
       color: var(--ink);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+      transform: scaleX(1);
     }
 
     /* ── BREAKS ── */
@@ -161,6 +183,37 @@
     .hero-cta:hover,
     .hero-cta:focus {
       background: var(--prussian);
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: rgba(13,13,13,0.1);
+      max-width: 760px;
+      margin-top: 2.75rem;
+    }
+
+    .proof-item {
+      background: var(--parchment);
+      padding: 1rem 1.1rem;
+    }
+
+    .proof-kicker {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.35rem;
+    }
+
+    .proof-text {
+      display: block;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: var(--ink);
     }
 
     /* ── RULE ── */
@@ -242,6 +295,13 @@
     .service-card {
       background: var(--prussian);
       padding: 2.1rem 1.8rem;
+      transform: translateY(0);
+      transition: transform 0.28s ease, background 0.28s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      background: #244657;
     }
 
     .service-num {
@@ -397,15 +457,43 @@
       letter-spacing: 0.08em;
     }
 
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card.reveal:nth-child(2) { transition-delay: 0.08s; }
+    .service-card.reveal:nth-child(3) { transition-delay: 0.16s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .reveal,
+      .reveal.is-visible,
+      .service-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       :root { --pad: 1.5rem; }
 
-      nav { padding: 0.9rem var(--pad); }
+      nav { padding: 0.85rem var(--pad); }
 
-      .nav-logo-mark  { height: 28px; }
-      .nav-logo-text  { font-size: 15px; }
-      .nav-logo-divider { margin: 0 12px; height: 22px; }
+      .nav-logo-mark  { height: 34px; }
+      .nav-logo-text  { font-size: 16px; letter-spacing: 0.16em; }
+      .nav-logo-divider { margin: 0 12px; height: 26px; }
 
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 0.7rem; }
@@ -425,6 +513,11 @@
         font-size: 1.08rem;
         line-height: 1.58;
         margin-bottom: 1.9rem;
+      }
+
+      .hero-proof {
+        grid-template-columns: 1fr;
+        margin-top: 2.25rem;
       }
 
       .section { padding: 2.6rem var(--pad); }
@@ -484,13 +577,27 @@
       <h1 class="hero-headline" id="hero-heading">Your business is running.<br class="desktop-break" /><span class="mobile-break"> </span>But is it actually performing?</h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
       <a class="hero-cta" href="#contact">Start with a diagnostic</a>
+      <div class="hero-proof reveal" aria-label="Lewis Lab approach summary">
+        <div class="proof-item">
+          <span class="proof-kicker">Diagnose</span>
+          <span class="proof-text">Find the real constraint before spending more.</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-kicker">Prioritize</span>
+          <span class="proof-text">Separate signal from noise across the business.</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-kicker">Execute</span>
+          <span class="proof-text">Turn findings into focused action.</span>
+        </div>
+      </div>
     </section>
 
     <hr class="rule" />
 
     <section class="section" id="about" aria-labelledby="about-heading">
       <p class="section-label">About</p>
-      <div class="about-grid">
+      <div class="about-grid reveal">
         <h2 class="about-heading" id="about-heading">We find what others miss. Then we fix it.</h2>
         <div class="about-body">
           <p>Lewis Lab is an advisory practice built around diagnosis, clarity, and practical improvement. We help businesses pressure-test performance across marketing, operations, reporting, and execution, then turn the findings into focused action.</p>
@@ -505,19 +612,19 @@
     <section class="services" id="services" aria-labelledby="services-heading">
       <div class="section">
         <p class="section-label">What We Do</p>
-        <h2 class="services-heading" id="services-heading">Three steps. No shortcuts.</h2>
+        <h2 class="services-heading reveal" id="services-heading">Three steps. No shortcuts.</h2>
         <div class="services-grid">
-          <article class="service-card">
+          <article class="service-card reveal">
             <p class="service-num">01</p>
             <h3 class="service-title">Diagnostic</h3>
             <p class="service-desc">We review your data, marketing, operations, and reporting to separate performance from noise. You get a clear read on where things stand, what is creating friction, and what to address first.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal">
             <p class="service-num">02</p>
             <h3 class="service-title">Strategy</h3>
             <p class="service-desc">Built for your specific situation. No generic playbooks. We identify the leverage points that matter and build a roadmap around your market, your team, and your execution capacity.</p>
           </article>
-          <article class="service-card">
+          <article class="service-card reveal">
             <p class="service-num">03</p>
             <h3 class="service-title">Execution Support</h3>
             <p class="service-desc">We stay close to the work. Lewis Lab tracks progress, pressure-tests decisions, adjusts the approach, and helps keep the work tied to measurable outcomes.</p>
@@ -528,7 +635,7 @@
 
     <section class="section" id="contact" aria-labelledby="contact-heading">
       <p class="section-label">Contact</p>
-      <div class="contact-grid">
+      <div class="contact-grid reveal">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
         <form class="contact-form">
           <label for="name">Name</label>
@@ -564,6 +671,21 @@
     </div>
     <span>© 2026 Lewis Lab</span>
   </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+  </script>
 
 </body>
 </html>

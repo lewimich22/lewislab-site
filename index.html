@@ -743,8 +743,8 @@
 
     <section class="services" id="services" aria-labelledby="services-heading">
       <div class="section">
-        <p class="section-label">What We Do</p>
-        <h2 class="services-heading" id="services-heading">Three steps. No shortcuts.</h2>
+        <p class="section-label services-intro-reveal">What We Do</p>
+        <h2 class="services-heading services-intro-reveal" id="services-heading">Three steps. No shortcuts.</h2>
         <div class="services-grid">
           <article class="service-card reveal">
             <div class="service-topline reveal-piece">
@@ -805,11 +805,11 @@
       </div>
     </section>
 
-    <section class="section" id="contact" aria-labelledby="contact-heading">
+    <section class="section reveal-section" id="contact" aria-labelledby="contact-heading">
       <p class="section-label">Contact</p>
       <div class="contact-grid">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
-        <form class="contact-form" action="https://formsubmit.co/lewimich22@gmail.com" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/hello@lewislab.io" method="POST">
           <input type="hidden" name="_subject" value="New Lewis Lab website inquiry" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
@@ -847,7 +847,7 @@
   </footer>
 
   <script>
-    const revealItems = document.querySelectorAll('.reveal');
+    const revealItems = document.querySelectorAll('.reveal, .services-intro-reveal, .reveal-section');
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

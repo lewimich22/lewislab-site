@@ -343,7 +343,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
+      transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
     .reveal.is-visible {
@@ -351,12 +351,39 @@
       transform: translateY(0);
     }
 
-    .services-grid .service-card:nth-child(2) {
+    .reveal-piece {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.42s ease, transform 0.42s ease;
+    }
+
+    .service-card.is-visible .reveal-piece {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card.is-visible .reveal-piece:nth-child(1) {
       transition-delay: 0.08s;
     }
 
+    .service-card.is-visible .reveal-piece:nth-child(2) {
+      transition-delay: 0.18s;
+    }
+
+    .service-card.is-visible .reveal-piece:nth-child(3) {
+      transition-delay: 0.28s;
+    }
+
+    .service-card.is-visible .reveal-piece:nth-child(4) {
+      transition-delay: 0.38s;
+    }
+
+    .services-grid .service-card:nth-child(2) {
+      transition-delay: 0.10s;
+    }
+
     .services-grid .service-card:nth-child(3) {
-      transition-delay: 0.16s;
+      transition-delay: 0.20s;
     }
 
     .contact-grid {
@@ -473,20 +500,7 @@
       color: var(--stone);
       letter-spacing: 0.08em;
     }
-
-
-    .reveal-section {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-
-    .reveal-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
       :root { --pad: 1.5rem; }
 
       nav {
@@ -727,13 +741,13 @@
 
     <hr class="rule" />
 
-    <section class="services reveal-section" id="services" aria-labelledby="services-heading">
+    <section class="services" id="services" aria-labelledby="services-heading">
       <div class="section">
         <p class="section-label">What We Do</p>
         <h2 class="services-heading" id="services-heading">Three steps. No shortcuts.</h2>
         <div class="services-grid">
           <article class="service-card reveal">
-            <div class="service-topline">
+            <div class="service-topline reveal-piece">
               <div class="service-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <circle cx="20" cy="20" r="9"></circle>
@@ -748,13 +762,13 @@
               </div>
               <p class="service-num">01</p>
             </div>
-            <p class="service-method">Examine</p>
-            <h3 class="service-title">Diagnostic</h3>
-            <p class="service-desc">We review your data, marketing, operations, and reporting to separate performance from noise. You get a clear read on where things stand, what is creating friction, and what to address first.</p>
+            <p class="service-method reveal-piece">Examine</p>
+            <h3 class="service-title reveal-piece">Diagnostic</h3>
+            <p class="service-desc reveal-piece">We review your data, marketing, operations, and reporting to separate performance from noise. You get a clear read on where things stand, what is creating friction, and what to address first.</p>
           </article>
 
           <article class="service-card reveal">
-            <div class="service-topline">
+            <div class="service-topline reveal-piece">
               <div class="service-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <path d="M8 14 H40"></path>
@@ -767,13 +781,13 @@
               </div>
               <p class="service-num">02</p>
             </div>
-            <p class="service-method">Isolate</p>
-            <h3 class="service-title">Strategy</h3>
-            <p class="service-desc">Built for your specific situation. No generic playbooks. We identify the leverage points that matter and build a roadmap around your market, your team, and your execution capacity.</p>
+            <p class="service-method reveal-piece">Isolate</p>
+            <h3 class="service-title reveal-piece">Strategy</h3>
+            <p class="service-desc reveal-piece">Built for your specific situation. No generic playbooks. We identify the leverage points that matter and build a roadmap around your market, your team, and your execution capacity.</p>
           </article>
 
           <article class="service-card reveal">
-            <div class="service-topline">
+            <div class="service-topline reveal-piece">
               <div class="service-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <path d="M8 34 L17 25 L25 31 L40 14"></path>
@@ -783,15 +797,15 @@
               </div>
               <p class="service-num">03</p>
             </div>
-            <p class="service-method">Apply</p>
-            <h3 class="service-title">Execution Support</h3>
-            <p class="service-desc">We stay close to the work. Lewis Lab tracks progress, pressure-tests decisions, adjusts the approach, and helps keep the work tied to measurable outcomes.</p>
+            <p class="service-method reveal-piece">Apply</p>
+            <h3 class="service-title reveal-piece">Execution Support</h3>
+            <p class="service-desc reveal-piece">We stay close to the work. Lewis Lab tracks progress, pressure-tests decisions, adjusts the approach, and helps keep the work tied to measurable outcomes.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal-section" id="contact" aria-labelledby="contact-heading">
+    <section class="section" id="contact" aria-labelledby="contact-heading">
       <p class="section-label">Contact</p>
       <div class="contact-grid">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
@@ -833,7 +847,7 @@
   </footer>
 
   <script>
-    const revealItems = document.querySelectorAll('.reveal, .reveal-section');
+    const revealItems = document.querySelectorAll('.reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

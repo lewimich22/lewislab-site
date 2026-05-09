@@ -386,6 +386,18 @@
       transition-delay: 0.20s;
     }
 
+
+    .contact-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .contact-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -805,9 +817,9 @@
       </div>
     </section>
 
-    <section class="section reveal-section" id="contact" aria-labelledby="contact-heading">
+    <section class="section" id="contact" aria-labelledby="contact-heading">
       <p class="section-label">Contact</p>
-      <div class="contact-grid">
+      <div class="contact-grid contact-reveal">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
         <form class="contact-form" action="https://formsubmit.co/hello@lewislab.io" method="POST">
           <input type="hidden" name="_subject" value="New Lewis Lab website inquiry" />
@@ -847,7 +859,7 @@
   </footer>
 
   <script>
-    const revealItems = document.querySelectorAll('.reveal, .services-intro-reveal, .reveal-section');
+    const revealItems = document.querySelectorAll('.reveal, .services-intro-reveal, .contact-reveal');
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -856,7 +868,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.18 });
+    }, { threshold: 0.12 });
 
     revealItems.forEach((item) => revealObserver.observe(item));
   </script>

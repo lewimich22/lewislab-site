@@ -519,17 +519,13 @@
       }
 
       .hero {
-        min-height: calc(100svh - 72px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 5.15rem var(--pad) 1.15rem;
+        padding: 5.25rem var(--pad) 2rem;
       }
 
       .hero-headline {
-        font-size: clamp(2.5rem, 10.4vw, 3.35rem);
-        line-height: 1.02;
-        letter-spacing: -0.052em;
+        font-size: clamp(2.35rem, 9.8vw, 3.15rem);
+        line-height: 1.03;
+        letter-spacing: -0.05em;
         max-width: 12.5ch;
         margin-bottom: 1.05rem;
       }
@@ -555,12 +551,12 @@
         max-width: 100%;
         font-size: 1.02rem;
         line-height: 1.52;
-        margin-bottom: 1.45rem;
+        margin-bottom: 1.4rem;
       }
 
       .hero-cta {
         display: block;
-        width: min(100%, 27rem);
+        width: min(100%, 22rem);
         margin-left: auto;
         margin-right: auto;
         text-align: center;
@@ -575,7 +571,7 @@
       }
 
       #about.section {
-        padding-top: 1.25rem;
+        padding-top: 1.7rem;
       }
 
       .section-label {
@@ -642,9 +638,8 @@
 
     @media (max-width: 430px) {
       .hero {
-        min-height: calc(100svh - 70px);
-        padding-top: 5rem;
-        padding-bottom: 1rem;
+        padding-top: 5.15rem;
+        padding-bottom: 2rem;
       }
 
       nav {
@@ -800,7 +795,10 @@
       <p class="section-label">Contact</p>
       <div class="contact-grid">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
-        <form class="contact-form">
+        <form class="contact-form" action="https://formsubmit.co/lewimich22@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Lewis Lab website inquiry" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
           <label for="name">Name</label>
           <input id="name" name="name" type="text" placeholder="Name" required />
 

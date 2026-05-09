@@ -573,12 +573,10 @@
         padding: 2rem 1.5rem;
       }
 
-
       .service-icon {
         width: 40px;
         height: 40px;
       }
-
 
       .service-topline {
         margin-bottom: 0.8rem;
@@ -645,13 +643,6 @@
         font-size: 0.61rem;
         letter-spacing: 0.06em;
       }
-
-    @media (max-width: 430px) {
-      nav {
-        padding-left: 0.95rem;
-        padding-right: 0.95rem;
-      }
-
       .nav-logo-mark { height: 27px; }
 
       .nav-logo-divider {
@@ -676,6 +667,66 @@
       .hero-headline {
         font-size: clamp(2.3rem, 10vw, 3.05rem);
         max-width: 11ch;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding-bottom: 2.15rem;
+      }
+
+      .hero-headline {
+        max-width: 11.75ch;
+        text-wrap: balance;
+      }
+
+      .hero-headline span {
+        display: block;
+      }
+
+      .hero-headline span + span {
+        margin-top: 0.08em;
+      }
+
+      .hero-cta {
+        display: block;
+        width: min(100%, 27rem);
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      .section {
+        padding-top: 2.15rem;
+        padding-bottom: 2.35rem;
+      }
+
+      #about.section {
+        padding-top: 2rem;
+      }
+
+      .section-label {
+        margin-bottom: 0.85rem;
+      }
+
+      .about-grid {
+        gap: 1.2rem;
+      }
+
+      .service-icon {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-headline {
+        font-size: clamp(2.25rem, 9.5vw, 3rem);
+        max-width: 11.5ch;
+      }
+
+      .hero-sub {
+        font-size: 1.02rem;
       }
     }
 

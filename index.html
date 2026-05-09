@@ -151,8 +151,12 @@
       margin-bottom: 1.25rem;
     }
 
-    .hero-headline span {
+    .hero-headline .desktop-line {
       display: block;
+    }
+
+    .hero-headline .mobile-line {
+      display: none;
     }
 
     .hero-sub {
@@ -518,27 +522,40 @@
         min-height: calc(100svh - 72px);
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding: 6.3rem var(--pad) 2.4rem;
+        justify-content: flex-start;
+        padding: 5.15rem var(--pad) 1.15rem;
       }
 
       .hero-headline {
-        font-size: clamp(2.25rem, 9.3vw, 3.05rem);
-        line-height: 1.06;
-        letter-spacing: -0.045em;
-        max-width: 11.6ch;
+        font-size: clamp(2.5rem, 10.4vw, 3.35rem);
+        line-height: 1.02;
+        letter-spacing: -0.052em;
+        max-width: 12.5ch;
         margin-bottom: 1.05rem;
       }
 
-      .hero-headline span + span {
-        margin-top: 0.08em;
+      .hero-headline .desktop-line {
+        display: none;
+      }
+
+      .hero-headline .mobile-line {
+        display: block;
+      }
+
+
+      .hero-headline .mobile-line + .mobile-line {
+        margin-top: 0;
+      }
+
+      .hero-headline .hero-question {
+        margin-top: 0.18em;
       }
 
       .hero-sub {
         max-width: 100%;
         font-size: 1.02rem;
-        line-height: 1.55;
-        margin-bottom: 2.15rem;
+        line-height: 1.52;
+        margin-bottom: 1.45rem;
       }
 
       .hero-cta {
@@ -558,7 +575,7 @@
       }
 
       #about.section {
-        padding-top: 2.25rem;
+        padding-top: 1.25rem;
       }
 
       .section-label {
@@ -626,8 +643,8 @@
     @media (max-width: 430px) {
       .hero {
         min-height: calc(100svh - 70px);
-        padding-top: 6.1rem;
-        padding-bottom: 2.2rem;
+        padding-top: 5rem;
+        padding-bottom: 1rem;
       }
 
       nav {
@@ -687,8 +704,13 @@
   <main>
     <section class="hero" aria-labelledby="hero-heading">
       <h1 class="hero-headline" id="hero-heading">
-        <span>Your business is running.</span>
-        <span>But is it actually performing?</span>
+        <span class="desktop-line">Your business is running.</span>
+        <span class="desktop-line">But is it actually performing?</span>
+
+        <span class="mobile-line">Your business is</span>
+        <span class="mobile-line">running.</span>
+        <span class="mobile-line hero-question">But is it actually</span>
+        <span class="mobile-line">performing?</span>
       </h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
       <a class="hero-cta" href="#contact">Start with a diagnostic</a>

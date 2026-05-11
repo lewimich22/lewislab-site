@@ -509,9 +509,8 @@
 
       // Progress
       html += `<div class="mb-8">`;
-      html += `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">`;
+      html += `<div style="display:flex;align-items:center;justify-content:flex-start;margin-bottom:0.75rem;">`;
       html += `<p class="text-sm font-semibold" style="color:var(--ink);">Step ${step} of ${TOTAL_STEPS}</p>`;
-      html += `<p class="text-xs" style="color:var(--stone);">Takes about 2\u20133 minutes</p>`;
       html += `</div>`;
       html += `<div class="progress-bar">`;
       for (let i = 0; i < TOTAL_STEPS; i++) {

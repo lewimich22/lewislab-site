@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity Diagnostic — Lewis Lab</title>
+  <meta name="description" content="A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0D0D0D;
+      --moss: #527D45;
+      --prussian: #1E3A4A;
+      --parchment: #F5F4F0;
+      --stone: #888880;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Host Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: var(--parchment);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 768px) { .nav { padding: 0.9rem 3.25rem; } }
+
+    .nav-logo { height: 1.75rem; width: auto; }
+    @media (min-width: 768px) { .nav-logo { height: 2.25rem; } }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+    }
+    @media (min-width: 768px) { .nav-links { gap: 2rem; } }
+
+    .nav-link {
+      position: relative;
+      color: var(--stone);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover, .nav-link:focus { color: var(--ink); }
+
+    /* Main */
+    main { padding-top: 4rem; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(13,13,13,0.08);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    @media (min-width: 768px) {
+      .footer { flex-direction: row; padding: 1.25rem 3.25rem; }
+    }
+    .footer-logo { height: 1.75rem; width: auto; opacity: 0.6; }
+    @media (min-width: 768px) { .footer-logo { height: 2rem; } }
+    .footer-copy {
+      font-size: 0.7rem;
+      color: var(--stone);
+      letter-spacing: 0.08em;
+    }
+
+    /* Section */
+    .section { padding: 3.5rem 1.5rem; max-width: 36rem; margin: 0 auto; }
+    @media (min-width: 768px) { .section { padding: 3.5rem 3.25rem; } }
+
+    .section-wide { max-width: 64rem; }
+
+    /* Typography */
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .heading-xl {
+      font-size: clamp(2.4rem, 5.1vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      max-width: 17ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .heading-lg {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .body-lg {
+      font-size: 1.15rem;
+      color: var(--stone);
+      line-height: 1.65;
+      max-width: 50ch;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--ink);
+      padding: 0.875rem 2rem;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover, .btn-primary:focus { background: var(--moss); }
+    .btn-primary:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-primary:disabled:hover { background: var(--ink); }
+
+    .btn-back {
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--stone);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .btn-back:hover { color: var(--ink); }
+    .btn-back:disabled { opacity: 0; pointer-events: none; }
+
+    /* Rating */
+    .rating-group { display: inline-flex; flex-direction: column; }
+    .rating-buttons { display: flex; gap: 0.5rem; }
+    .rating-btn {
+      width: 2.75rem; height: 2.75rem;
+      display: flex; align-items: center; justify-content: center;
+      font-family: inherit;
+      font-size: 0.875rem; font-weight: 500;
+      border: 1px solid rgba(13,13,13,0.15);
+      background: #fff;
+      color: var(--stone);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .rating-btn:hover { border-color: rgba(13,13,13,0.4); color: var(--ink); }
+    .rating-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .rating-labels {
+      display: flex; justify-content: space-between; margin-top: 0.5rem;
+    }
+    .rating-label {
+      font-size: 0.65rem; color: var(--stone);
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* Evidence */
+    .evidence-btn {
+      font-family: inherit;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.78rem; font-weight: 500;
+      border: 1px solid rgba(13,13,13,0.15);
+      background: #fff;
+      color: var(--stone);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .evidence-btn:hover { border-color: rgba(13,13,13,0.4); color: var(--ink); }
+    .evidence-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* Progress */
+    .progress-bar {
+      display: flex; gap: 0.375rem;
+    }
+    .progress-segment {
+      flex: 1; height: 3px;
+      background: rgba(13,13,13,0.1);
+      transition: background 0.3s;
+    }
+    .progress-segment.filled { background: var(--ink); }
+
+    /* Results */
+    .score-box {
+      border: 1px solid rgba(13,13,13,0.1);
+      background: #fff;
+      padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (min-width: 768px) { .score-box { padding: 2.5rem; } }
+
+    .score-value {
+      font-size: clamp(3rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .bar-track { width: 100%; height: 3px; background: rgba(13,13,13,0.08); margin-top: 1.5rem; }
+    .bar-fill { height: 100%; transition: width 0.7s ease; }
+    .bar-fill-ink { background: var(--ink); }
+    .bar-fill-moss { background: var(--moss); }
+    .bar-fill-prussian { background: var(--prussian); }
+    .bar-fill-stone { background: var(--stone); }
+
+    .breakdown-row { margin-bottom: 1rem; }
+    .breakdown-row-top { display: flex; align-items: center; gap: 1rem; }
+    .breakdown-cat { font-size: 0.875rem; width: 11rem; flex-shrink: 0; color: var(--stone); }
+    .breakdown-cat.highlight { font-weight: 700; color: var(--ink); }
+    .breakdown-bar { flex: 1; height: 4px; background: rgba(13,13,13,0.06); overflow: hidden; }
+    .breakdown-pct { font-size: 0.875rem; width: 2.5rem; text-align: right; flex-shrink: 0; font-variant-numeric: tabular-nums; color: var(--stone); }
+    .breakdown-pct.highlight { font-weight: 700; color: var(--ink); }
+    .breakdown-status {
+      margin-top: 0.375rem;
+      margin-left: 0;
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    @media (min-width: 768px) { .breakdown-status { margin-left: 12rem; } }
+
+    .status-ink { color: var(--ink); }
+    .status-moss { color: var(--moss); }
+    .status-prussian { color: var(--prussian); }
+    .status-stone { color: var(--stone); }
+
+    .divider { border-top: 1px solid rgba(13,13,13,0.1); padding-top: 2rem; margin-bottom: 2rem; }
+
+    /* Form */
+    .form-field { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block;
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.375rem;
+    }
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.625rem 0.75rem;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid rgba(13,13,13,0.15);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: rgba(13,13,13,0.4); }
+    .form-textarea { resize: none; }
+
+    /* Utilities */
+    .hidden { display: none !important; }
+    .mt-2 { margin-top: 0.5rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mt-10 { margin-top: 2.5rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-5 { margin-bottom: 1.25rem; }
+    .mb-7 { margin-bottom: 1.75rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-10 { margin-bottom: 2.5rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .text-sm { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .w-full { width: 100%; }
+    .text-center { text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/index.html">
+      <img src="/lewis-lab-logo-horizontal.svg" alt="Lewis Lab" class="nav-logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html#about" class="nav-link">About</a></li>
+      <li><a href="/index.html#services" class="nav-link">Work</a></li>
+      <li><a href="/blog.html" class="nav-link">Field Notes</a></li>
+      <li><a href="/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div id="view-hero" class="section section-wide" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
+      <h1 class="heading-xl">How clear is your business, really?</h1>
+      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about two minutes.</p>
+      <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Start Diagnostic</button>
+    </div>
+
+    <div id="view-diagnostic" class="section hidden"></div>
+    <div id="view-results" class="section hidden"></div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://lewislab.io">
+      <img src="/lewis-lab-logo-horizontal.svg" alt="Lewis Lab" class="footer-logo" />
+    </a>
+    <span class="footer-copy">&copy; 2026 Lewis Lab</span>
+  </footer>
+
+  <script>
+    // Data
+    const questions = [
+      { id: 1, text: 'Our current business priorities are clearly defined.', category: 'Strategy' },
+      { id: 2, text: 'We know which activities are actually driving meaningful results.', category: 'Strategy' },
+      { id: 3, text: 'Our reporting helps us make better decisions.', category: 'Reporting' },
+      { id: 4, text: 'We can connect marketing, sales, or operational activity to real outcomes.', category: 'Reporting' },
+      { id: 5, text: 'Projects usually move from idea to execution without getting stuck.', category: 'Execution' },
+      { id: 6, text: 'Roles, ownership, and next steps are clear when initiatives are launched.', category: 'Execution' },
+      { id: 7, text: 'We have a clear view of where customers, leads, or opportunities are coming from.', category: 'Growth' },
+      { id: 8, text: 'Vendors, partners, or outside resources are held accountable with clear performance expectations.', category: 'Growth' },
+      { id: 9, text: 'Core processes are clear, consistent, and easy to follow.', category: 'Operations' },
+      { id: 10, text: 'Important work does not depend too heavily on memory, workarounds, or informal handoffs.', category: 'Operations' },
+      { id: 11, text: 'Repetitive manual work is minimized through clear systems, tools, or automation.', category: 'Systems & Automation' },
+      { id: 12, text: 'We use technology effectively to reduce friction and improve visibility.', category: 'Systems & Automation' },
+    ];
+
+    const categories = ['Strategy', 'Reporting', 'Execution', 'Growth', 'Operations', 'Systems & Automation'];
+
+    const reviewRecommendations = {
+      Strategy: 'Strategy & Priority Review',
+      Reporting: 'Reporting & Visibility Review',
+      Execution: 'Strategy-to-Execution Review',
+      Growth: 'Customer Acquisition Review',
+      Operations: 'Operating Clarity Review',
+      'Systems & Automation': 'Systems & Automation Review',
+    };
+
+    const categoryDiagnoses = {
+      Strategy: 'Your business priorities may lack clarity, making it difficult to align teams and allocate resources effectively.',
+      Reporting: 'Your reporting infrastructure may not be connecting activity to outcomes, leaving leadership without actionable insight.',
+      Execution: 'There appears to be friction between strategy and delivery, causing initiatives to stall or lose momentum.',
+      Growth: 'Visibility into customer acquisition and partner performance may be limited, making it hard to scale what works.',
+      Operations: 'Core processes may be unclear or inconsistent, with too much reliance on memory and informal handoffs rather than documented workflows.',
+      'Systems & Automation': 'Repetitive manual work and technology gaps may be consuming capacity and reducing visibility that could be addressed through better systems and automation.',
+    };
+
+    const evidenceOptions = [
+      { value: 'reporting', label: 'Actual reporting / documented process' },
+      { value: 'some-evidence', label: 'Some evidence + judgment' },
+      { value: 'instinct', label: 'Mostly instinct / vendor summaries' },
+      { value: 'not-sure', label: 'Not sure' },
+    ];
+
+    // State
+    let answers = {};
+    let evidence = { Strategy: null, Reporting: null, Execution: null, Growth: null, Operations: null, 'Systems & Automation': null };
+    let currentStep = 0;
+    const TOTAL_STEPS = 6;
+
+    // Views
+    function showView(id) {
+      document.getElementById('view-hero').classList.add('hidden');
+      document.getElementById('view-diagnostic').classList.add('hidden');
+      document.getElementById('view-results').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function startDiagnostic() {
+      answers = {};
+      evidence = { Strategy: null, Reporting: null, Execution: null, Growth: null, Operations: null, 'Systems & Automation': null };
+      currentStep = 0;
+      showView('view-diagnostic');
+      renderDiagnostic();
+    }
+
+    // Diagnostic
+    function renderDiagnostic() {
+      const cat = categories[currentStep];
+      const catQuestions = questions.filter(q => q.category === cat);
+      const step = currentStep + 1;
+      const isLast = currentStep === TOTAL_STEPS - 1;
+
+      const catComplete = catQuestions.every(q => answers[q.id] !== undefined);
+      const evidenceSelected = evidence[cat] !== null;
+      const canProceed = catComplete && evidenceSelected;
+      const allAnswered = questions.every(q => answers[q.id] !== undefined);
+
+      let html = '';
+
+      // Progress
+      html += `<div class="mb-8">`;
+      html += `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">`;
+      html += `<p class="text-sm font-semibold" style="color:var(--ink);">Step ${step} of ${TOTAL_STEPS}</p>`;
+      html += `<p class="text-xs" style="color:var(--stone);">Takes about 2\u20133 minutes</p>`;
+      html += `</div>`;
+      html += `<div class="progress-bar">`;
+      for (let i = 0; i < TOTAL_STEPS; i++) {
+        html += `<div class="progress-segment${i < step ? ' filled' : ''}"></div>`;
+      }
+      html += `</div></div>`;
+
+      // Questions
+      catQuestions.forEach(q => {
+        html += `<div class="mb-10">`;
+        html += `<p style="font-size:1.05rem;color:var(--ink);line-height:1.6;margin-bottom:1rem;">${q.text}</p>`;
+        html += `<div class="rating-group"><div class="rating-buttons">`;
+        for (let r = 1; r <= 5; r++) {
+          const active = answers[q.id] === r ? ' active' : '';
+          html += `<button class="rating-btn${active}" onclick="rate(${q.id},${r})">${r}</button>`;
+        }
+        html += `</div><div class="rating-labels"><span class="rating-label">Disagree</span><span class="rating-label">Agree</span></div></div>`;
+        html += `</div>`;
+      });
+
+      // Evidence
+      html += `<div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(13,13,13,0.08);">`;
+      html += `<p style="font-size:0.92rem;color:var(--ink);line-height:1.6;margin-bottom:0.75rem;">What are these answers mainly based on?</p>`;
+      html += `<div style="display:flex;flex-wrap:wrap;gap:0.5rem;">`;
+      evidenceOptions.forEach(opt => {
+        const active = evidence[cat] === opt.value ? ' active' : '';
+        html += `<button class="evidence-btn${active}" onclick="setEvidence('${opt.value}')">${opt.label}</button>`;
+      });
+      html += `</div></div>`;
+
+      // Nav
+      html += `<div style="margin-top:2.5rem;display:flex;align-items:center;justify-content:space-between;">`;
+      html += `<button class="btn-back" ${currentStep === 0 ? 'disabled' : ''} onclick="prevStep()">Back</button>`;
+      if (isLast) {
+        html += `<button class="btn-primary" ${!(allAnswered && canProceed) ? 'disabled' : ''} onclick="viewResults()">View Results</button>`;
+      } else {
+        html += `<button class="btn-primary" ${!canProceed ? 'disabled' : ''} onclick="nextStep()">Next</button>`;
+      }
+      html += `</div>`;
+
+      document.getElementById('view-diagnostic').innerHTML = html;
+    }
+
+    function rate(id, rating) {
+      answers[id] = rating;
+      renderDiagnostic();
+    }
+
+    function setEvidence(value) {
+      const cat = categories[currentStep];
+      evidence[cat] = value;
+      renderDiagnostic();
+    }
+
+    function nextStep() {
+      if (currentStep < TOTAL_STEPS - 1) {
+        currentStep++;
+        renderDiagnostic();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        renderDiagnostic();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Results
+    function needsValidation(conf) {
+      return conf === 'instinct' || conf === 'not-sure';
+    }
+
+    function calculateCategoryScores() {
+      const scores = {};
+      categories.forEach(cat => {
+        const catQs = questions.filter(q => q.category === cat);
+        const total = catQs.reduce((sum, q) => sum + (answers[q.id] || 0), 0);
+        scores[cat] = Math.round((total / (catQs.length * 5)) * 100);
+      });
+      return scores;
+    }
+
+    function calculateOverallScore() {
+      const total = Object.values(answers).reduce((sum, v) => sum + v, 0);
+      return Math.round((total / (questions.length * 5)) * 100);
+    }
+
+    function getLowestCategory(scores) {
+      let lowest = categories[0];
+      categories.forEach(cat => {
+        if (scores[cat] < scores[lowest]) lowest = cat;
+      });
+      return lowest;
+    }
+
+    function viewResults() {
+      showView('view-results');
+      renderResults();
+    }
+
+    function renderResults() {
+      const scores = calculateCategoryScores();
+      const overall = calculateOverallScore();
+      const lowest = getLowestCategory(scores);
+
+      const allHigh = categories.every(cat => scores[cat] >= 75);
+      const validateCats = categories.filter(cat => scores[cat] >= 75 && needsValidation(evidence[cat]));
+      const isValidationMode = allHigh && validateCats.length > 0;
+
+      const primary = isValidationMode ? validateCats[0] : lowest;
+      const recommendation = reviewRecommendations[primary];
+      const diagnosis = categoryDiagnoses[primary];
+
+      let html = '';
+
+      html += `<p class="section-label mb-2">Lewis Lab</p>`;
+      html += `<h1 class="heading-lg" style="margin-bottom:1rem;">Your Clarity Snapshot</h1>`;
+      html += `<p style="font-size:0.84rem;color:var(--stone);line-height:1.6;margin-bottom:2.5rem;">Scores reflect self-reported clarity. Lewis Lab uses the evidence check to identify what should be validated against real reporting, workflows, vendor outputs, and outcomes.</p>`;
+
+      // Score box
+      html += `<div class="score-box">`;
+      html += `<p class="section-label mb-4">Perceived Clarity Score</p>`;
+      html += `<span class="score-value">${overall}%</span>`;
+      html += `<div class="bar-track"><div class="bar-fill bar-fill-ink" style="width:${overall}%;"></div></div>`;
+      html += `<p style="font-size:0.78rem;color:var(--stone);line-height:1.6;margin-top:1rem;">This reflects self-reported clarity before validation.</p>`;
+      html += `</div>`;
+
+      // Breakdown
+      html += `<div class="mb-10"><p class="section-label mb-5">Diagnostic Breakdown</p>`;
+      categories.forEach(cat => {
+        const pct = scores[cat];
+        const isHighlighted = cat === primary;
+        const status = getCategoryStatus(pct, cat, lowest, isValidationMode, primary);
+        html += `<div class="breakdown-row">`;
+        html += `<div class="breakdown-row-top">`;
+        html += `<span class="breakdown-cat${isHighlighted ? ' highlight' : ''}">${cat}</span>`;
+        html += `<div class="breakdown-bar"><div class="bar-fill bar-fill-${status.bar}" style="width:${pct}%;"></div></div>`;
+        html += `<span class="breakdown-pct${isHighlighted ? ' highlight' : ''}">${pct}%</span>`;
+        html += `</div>`;
+        html += `<div class="breakdown-status status-${status.color}">${status.label}</div>`;
+        html += `</div>`;
+      });
+      html += `</div>`;
+
+      // Primary section
+      html += `<div class="divider">`;
+      html += `<p class="section-label mb-3">${isValidationMode ? 'Primary Validation Priority' : 'Primary Clarity Gap'}</p>`;
+      html += `<p style="font-size:1.25rem;font-weight:700;color:var(--ink);">${primary}</p>`;
+      html += `</div>`;
+
+      // What this suggests
+      html += `<div class="divider">`;
+      html += `<p class="section-label mb-3">What This Suggests</p>`;
+      const suggestText = isValidationMode
+        ? 'Your responses suggest strong perceived clarity overall. The priority is not necessarily a weak area, but an area that should be validated before treating it as a confirmed strength.'
+        : diagnosis;
+      html += `<p style="font-size:1.05rem;color:var(--stone);line-height:1.7;">${suggestText}</p>`;
+      html += `</div>`;
+
+      // Validation priorities
+      if (validateCats.length > 0) {
+        html += `<div class="divider">`;
+        html += `<p class="section-label mb-3">Validation Priorities</p>`;
+        html += `<ul style="list-style:none;margin-bottom:1rem;">`;
+        validateCats.forEach(cat => {
+          html += `<li style="font-size:1.05rem;color:var(--ink);line-height:1.7;margin-bottom:0.5rem;"><span class="font-semibold">${cat}</span><span style="color:var(--stone);"> &mdash; Scored high, but should be validated against actual reporting, workflows, vendor outputs, or business outcomes.</span></li>`;
+        });
+        html += `</ul></div>`;
+      }
+
+      // Recommended review
+      html += `<div class="divider mb-12">`;
+      html += `<p class="section-label mb-3">What Lewis Lab Would Review First</p>`;
+      const reviewText = isValidationMode
+        ? `Based on your responses, we would begin with a <span class="font-semibold" style="color:var(--ink);">${recommendation}</span> to verify whether perceived clarity in this area holds up against actual data and outcomes.`
+        : `Based on your responses, we would begin with a <span class="font-semibold" style="color:var(--ink);">${recommendation}</span> to examine the areas where perceived clarity is lowest and determine what needs validation.`;
+      html += `<p style="font-size:1.05rem;color:var(--stone);line-height:1.7;">${reviewText}</p>`;
+      html += `</div>`;
+
+      // CTA button
+      html += `<button id="cta-btn" class="btn-primary w-full text-center" onclick="showReviewForm()">Request a Review</button>`;
+
+      // Form placeholder (hidden)
+      html += `<div id="review-form-section" class="hidden"></div>`;
+
+      document.getElementById('view-results').innerHTML = html;
+
+      // Store data for form submission
+      window._diagnosticPayload = {
+        perceivedClarityScore: overall,
+        primaryFocus: primary,
+        primaryFocusType: isValidationMode ? 'validation' : 'gap',
+        recommendedReview: recommendation,
+        categoryScores: scores,
+        validationPriorities: validateCats,
+      };
+    }
+
+    function getCategoryStatus(pct, cat, lowest, isValidationMode, primary) {
+      if (!isValidationMode && cat === lowest) {
+        return { label: 'Primary Gap', bar: 'ink', color: 'ink' };
+      }
+      if (pct < 50) {
+        return { label: 'Needs Review', bar: 'prussian', color: 'prussian' };
+      }
+      if (pct >= 75) {
+        if (needsValidation(evidence[cat])) {
+          const label = isValidationMode && cat === primary ? 'Primary Validation Priority' : 'Validate';
+          return { label, bar: 'prussian', color: 'prussian' };
+        }
+        return { label: 'Appears Strong', bar: 'moss', color: 'moss' };
+      }
+      return { label: 'Watch Area', bar: 'stone', color: 'stone' };
+    }
+
+    function showReviewForm() {
+      document.getElementById('cta-btn').classList.add('hidden');
+      const section = document.getElementById('review-form-section');
+      section.classList.remove('hidden');
+
+      let html = '';
+      html += `<div style="border-top:1px solid rgba(13,13,13,0.1);padding-top:2.5rem;margin-top:2rem;">`;
+      html += `<h2 style="font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:0.75rem;">Request a Review</h2>`;
+      html += `<p style="font-size:0.92rem;color:var(--stone);line-height:1.65;margin-bottom:2rem;">Share your result and I\u2019ll review where clarity appears strongest, where validation is needed, and where Lewis Lab could help.</p>`;
+      html += `<form id="review-form" onsubmit="submitReviewForm(event)">`;
+      html += formField('Name', 'name', 'text', true);
+      html += formField('Business name', 'business', 'text', true);
+      html += formField('Website', 'website', 'url', false);
+      html += formField('Email', 'email', 'email', true);
+      html += `<div class="form-field"><label class="form-label" for="prompt">What prompted you to take the diagnostic?</label><textarea id="prompt" name="prompt" rows="3" class="form-textarea"></textarea></div>`;
+      html += `<button type="submit" class="btn-primary w-full text-center mt-2">Submit</button>`;
+      html += `</form></div>`;
+
+      section.innerHTML = html;
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function formField(label, name, type, required) {
+      const req = required ? ' required' : '';
+      return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req} /></div>`;
+    }
+
+    function submitReviewForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const payload = {
+        name: form.name.value,
+        business: form.business.value,
+        website: form.website.value,
+        email: form.email.value,
+        prompt: form.prompt.value,
+        diagnosticResults: window._diagnosticPayload,
+      };
+      console.log('Review request payload:', payload);
+
+      const section = document.getElementById('review-form-section');
+      section.innerHTML = `<div style="border-top:1px solid rgba(13,13,13,0.1);padding-top:2.5rem;margin-top:2rem;">
+        <p style="font-size:1.05rem;color:var(--ink);font-weight:600;margin-bottom:0.5rem;">Request captured.</p>
+        <p style="font-size:0.88rem;color:var(--stone);line-height:1.6;">Review request captured. Connect this form to email or your CRM before publishing.</p>
+      </div>`;
+    }
+  </script>
+</body>
+</html>

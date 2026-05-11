@@ -72,34 +72,8 @@
     }
     .nav-link:hover, .nav-link:focus { color: var(--ink); }
 
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.72rem;
-        padding: 0.85rem 0.95rem 0.75rem;
-      }
-
-      .nav-logo {
-        height: 1.75rem;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        gap: 0.45rem;
-      }
-
-      .nav-link {
-        font-size: 0.58rem;
-        letter-spacing: 0.055em;
-        white-space: nowrap;
-      }
-    }
-
     /* Main */
     main { padding-top: 4rem; }
-    @media (max-width: 640px) { main { padding-top: 5.95rem; } }
 
     /* Footer */
     .footer {
@@ -127,21 +101,6 @@
     @media (min-width: 768px) { .section { padding: 3.5rem 3.25rem; } }
 
     .section-wide { max-width: 64rem; }
-
-    @media (max-width: 640px) {
-      .section {
-        padding: 2.25rem 1.25rem;
-      }
-      #view-hero.section-wide {
-        min-height: auto !important;
-        padding-top: 2.35rem;
-        padding-bottom: 4.5rem;
-      }
-      #view-hero .btn-primary {
-        width: min(100%, 22rem);
-        text-align: center;
-      }
-    }
 
     /* Typography */
     .section-label {
@@ -369,7 +328,7 @@
   <main>
     <div id="view-hero" class="section section-wide" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
       <h1 class="heading-xl">How clear is your business, really?</h1>
-      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2–3 minutes.</p>
+      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about two minutes.</p>
       <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Start Diagnostic</button>
     </div>
 
@@ -693,16 +652,28 @@
       const section = document.getElementById('review-form-section');
       section.classList.remove('hidden');
 
+      const d = window._diagnosticPayload;
+      const catScoresText = categories.map(cat => cat + ': ' + d.categoryScores[cat] + '%').join(', ');
+      const validationText = d.validationPriorities.length > 0 ? d.validationPriorities.join(', ') : 'None';
+
       let html = '';
       html += `<div style="border-top:1px solid rgba(13,13,13,0.1);padding-top:2.5rem;margin-top:2rem;">`;
       html += `<h2 style="font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:0.75rem;">Request a Review</h2>`;
       html += `<p style="font-size:0.92rem;color:var(--stone);line-height:1.65;margin-bottom:2rem;">Share your result and I\u2019ll review where clarity appears strongest, where validation is needed, and where Lewis Lab could help.</p>`;
-      html += `<form id="review-form" onsubmit="submitReviewForm(event)">`;
-      html += formField('Name', 'name', 'text', true);
-      html += formField('Business name', 'business', 'text', true);
-      html += formField('Website', 'website', 'url', false);
-      html += formField('Email', 'email', 'email', true);
-      html += `<div class="form-field"><label class="form-label" for="prompt">What prompted you to take the diagnostic?</label><textarea id="prompt" name="prompt" rows="3" class="form-textarea"></textarea></div>`;
+      html += `<form action="https://formsubmit.co/hello@lewislab.io" method="POST">`;
+      html += `<input type="hidden" name="_subject" value="New Lewis Lab diagnostic review request" />`;
+      html += `<input type="hidden" name="_captcha" value="false" />`;
+      html += `<input type="hidden" name="_template" value="table" />`;
+      html += `<input type="hidden" name="Perceived Clarity Score" value="${d.perceivedClarityScore}%" />`;
+      html += `<input type="hidden" name="Primary Focus Area" value="${d.primaryFocus} (${d.primaryFocusType})" />`;
+      html += `<input type="hidden" name="Recommended Review" value="${d.recommendedReview}" />`;
+      html += `<input type="hidden" name="Category Scores" value="${catScoresText}" />`;
+      html += `<input type="hidden" name="Validation Priorities" value="${validationText}" />`;
+      html += formField('Name', 'Name', 'text', true);
+      html += formField('Business name', 'Business Name', 'text', true);
+      html += formField('Website', 'Website', 'text', false, 'url');
+      html += formField('Email', 'Email', 'email', true);
+      html += `<div class="form-field"><label class="form-label" for="prompt">What prompted you to take the diagnostic?</label><textarea id="prompt" name="What Prompted You" rows="3" class="form-textarea"></textarea></div>`;
       html += `<button type="submit" class="btn-primary w-full text-center mt-2">Submit</button>`;
       html += `</form></div>`;
 
@@ -710,29 +681,10 @@
       section.scrollIntoView({ behavior: 'smooth' });
     }
 
-    function formField(label, name, type, required) {
+    function formField(label, name, type, required, inputmode) {
       const req = required ? ' required' : '';
-      return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req} /></div>`;
-    }
-
-    function submitReviewForm(e) {
-      e.preventDefault();
-      const form = e.target;
-      const payload = {
-        name: form.name.value,
-        business: form.business.value,
-        website: form.website.value,
-        email: form.email.value,
-        prompt: form.prompt.value,
-        diagnosticResults: window._diagnosticPayload,
-      };
-      console.log('Review request payload:', payload);
-
-      const section = document.getElementById('review-form-section');
-      section.innerHTML = `<div style="border-top:1px solid rgba(13,13,13,0.1);padding-top:2.5rem;margin-top:2rem;">
-        <p style="font-size:1.05rem;color:var(--ink);font-weight:600;margin-bottom:0.5rem;">Request captured.</p>
-        <p style="font-size:0.88rem;color:var(--stone);line-height:1.6;">Review request captured. Connect this form to email or your CRM before publishing.</p>
-      </div>`;
+      const im = inputmode ? ` inputmode="${inputmode}"` : '';
+      return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req}${im} /></div>`;
     }
   </script>
 </body>

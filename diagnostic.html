@@ -310,6 +310,89 @@
     .font-semibold { font-weight: 600; }
     .w-full { width: 100%; }
     .text-center { text-align: center; }
+
+
+    /* Mobile refinements */
+    @media (max-width: 767px) {
+      .nav {
+        position: static;
+        padding: 1.15rem 1.5rem 1rem;
+        flex-wrap: wrap;
+        row-gap: 0.95rem;
+      }
+
+      .nav-logo {
+        height: 1.55rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.6rem;
+        overflow: hidden;
+      }
+
+      .nav-link {
+        font-size: 0.66rem;
+        letter-spacing: 0.07em;
+        white-space: nowrap;
+      }
+
+      main {
+        padding-top: 0;
+      }
+
+      .section {
+        max-width: 100%;
+        padding: 2.75rem 1.5rem;
+      }
+
+      #view-hero {
+        min-height: calc(100svh - 9.5rem) !important;
+        justify-content: center !important;
+      }
+
+      .heading-xl {
+        font-size: clamp(2.7rem, 10.5vw, 3.8rem);
+        max-width: 11ch;
+      }
+
+      .body-lg {
+        font-size: 1.18rem;
+        line-height: 1.55;
+      }
+
+      .btn-primary {
+        padding: 0.95rem 1.8rem;
+      }
+
+      .rating-btn {
+        width: 2.65rem;
+        height: 2.65rem;
+      }
+
+      .evidence-btn {
+        max-width: 100%;
+      }
+
+      .breakdown-row-top {
+        gap: 0.65rem;
+      }
+
+      .breakdown-cat {
+        width: 7.8rem;
+        font-size: 0.8rem;
+      }
+
+      .breakdown-pct {
+        width: 2.25rem;
+        font-size: 0.8rem;
+      }
+
+      .footer {
+        padding-bottom: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -328,7 +411,7 @@
   <main>
     <div id="view-hero" class="section section-wide" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
       <h1 class="heading-xl">How clear is your business, really?</h1>
-      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about two minutes.</p>
+      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2–3 minutes.</p>
       <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Start Diagnostic</button>
     </div>
 
@@ -673,7 +756,7 @@
       html += formField('Business name', 'Business Name', 'text', true);
       html += formField('Website', 'Website', 'text', false, 'url');
       html += formField('Email', 'Email', 'email', true);
-      html += `<div class="form-field"><label class="form-label" for="prompt">What prompted you to take the diagnostic?</label><textarea id="prompt" name="What Prompted You" rows="3" class="form-textarea"></textarea></div>`;
+      html += `<div class="form-field"><label class="form-label" for="What Prompted You">What prompted you to take the diagnostic?</label><textarea id="What Prompted You" name="What Prompted You" rows="3" class="form-textarea"></textarea></div>`;
       html += `<button type="submit" class="btn-primary w-full text-center mt-2">Submit</button>`;
       html += `</form></div>`;
 
@@ -686,6 +769,7 @@
       const im = inputmode ? ` inputmode="${inputmode}"` : '';
       return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req}${im} /></div>`;
     }
+
   </script>
 </body>
 </html>

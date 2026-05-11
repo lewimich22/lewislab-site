@@ -51,6 +51,11 @@
     html {
       font-size: 16px;
       scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    section[id] {
+      scroll-margin-top: 5.5rem;
     }
 
     body {
@@ -537,6 +542,14 @@
     }
 @media (max-width: 768px) {
       :root { --pad: 1.5rem; }
+
+      html {
+        scroll-padding-top: 8.25rem;
+      }
+
+      section[id] {
+        scroll-margin-top: 8.25rem;
+      }
 
       nav {
         padding: 0.85rem 1.2rem;

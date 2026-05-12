@@ -55,7 +55,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.7rem;
       list-style: none;
     }
     @media (min-width: 768px) { .nav-links { gap: 2rem; } }
@@ -63,12 +63,15 @@
     .nav-link {
       position: relative;
       color: var(--stone);
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       transition: color 0.2s;
+    }
+    @media (min-width: 768px) {
+      .nav-link { font-size: 0.8rem; letter-spacing: 0.12em; }
     }
     .nav-link:hover, .nav-link:focus { color: var(--ink); }
 
@@ -314,6 +317,10 @@
 
     /* Mobile refinements */
     @media (max-width: 767px) {
+      .mobile-hide {
+        display: none;
+      }
+
       .nav {
         position: static;
         padding: 1.15rem 1.5rem 1rem;
@@ -328,13 +335,13 @@
       .nav-links {
         width: 100%;
         justify-content: space-between;
-        gap: 0.6rem;
+        gap: 0.7rem;
         overflow: hidden;
       }
 
       .nav-link {
-        font-size: 0.66rem;
-        letter-spacing: 0.07em;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
         white-space: nowrap;
       }
 
@@ -401,7 +408,8 @@
       <img src="/lewis-lab-logo-horizontal.svg" alt="Lewis Lab" class="nav-logo" />
     </a>
     <ul class="nav-links">
-      <li><a href="/index.html#about" class="nav-link">About</a></li>
+      <li class="mobile-hide"><a href="/index.html#about" class="nav-link">About</a></li>
+      <li><a href="/services.html" class="nav-link">Services</a></li>
       <li><a href="/index.html#services" class="nav-link">Work</a></li>
       <li><a href="/blog.html" class="nav-link">Field Notes</a></li>
       <li><a href="/index.html#contact" class="nav-link">Contact</a></li>

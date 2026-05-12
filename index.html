@@ -555,12 +555,12 @@
       }
 
       .nav-links {
-        gap: 0.9rem;
+        gap: 0.7rem;
       }
 
       .nav-links a {
-        font-size: 0.68rem;
-        letter-spacing: 0.08em;
+        font-size: 0.64rem;
+        letter-spacing: 0.07em;
       }
 
       .nav-links a::after {
@@ -689,6 +689,10 @@
     }
 
     @media (max-width: 640px) {
+      .mobile-hide {
+        display: none;
+      }
+
       nav {
         flex-direction: column;
         align-items: flex-start;
@@ -699,12 +703,12 @@
       .nav-links {
         width: 100%;
         justify-content: space-between;
-        gap: 0.45rem;
+        gap: 0.55rem;
       }
 
       .nav-links a {
-        font-size: 0.58rem;
-        letter-spacing: 0.055em;
+        font-size: 0.62rem;
+        letter-spacing: 0.065em;
         white-space: nowrap;
       }
 
@@ -753,7 +757,7 @@
 <body>
 
   <nav aria-label="Primary navigation">
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="index.html">
       <!-- Mark -->
       <svg class="nav-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path fill="#0D0D0D" d="M6.74,660.85c7.02-159.58,13.14-327.38,18.73-486.98,1.42-40.33,4.12-121.96,5.39-162.32.09-2.71,2.36-4.84,5.07-4.75,2.6.09,4.66,2.19,4.75,4.75,1.85,58.76,4.8,144.44,6.83,202.91,4.75,131.63,9.98,274.19,15.64,405.82l1.77,40.58c.7,16.07-11.75,29.66-27.82,30.37-16.96.84-31.19-13.41-30.37-30.37Z"/>
@@ -767,7 +771,8 @@
     </a>
 
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li class="mobile-hide"><a href="#about">About</a></li>
+      <li><a href="services.html">Services</a></li>
       <li><a href="#services">Work</a></li>
       <li><a href="blog.html">Field Notes</a></li>
       <li><a href="#contact">Contact</a></li>

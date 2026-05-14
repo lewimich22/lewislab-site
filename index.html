@@ -976,6 +976,25 @@
         setTimeout(() => scrollToSection(window.location.hash, false), 0);
       }
     });
+  
+  // GA4 — lead_submit_home
+  (function() {
+
+  function fireEvent(name, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params || {});
+    }
+  }
+
+    var form = document.querySelector('.contact-form');
+    if (form && !form.dataset.gaAttached) {
+      form.dataset.gaAttached = '1';
+      form.addEventListener('submit', function() {
+        fireEvent('lead_submit_home');
+      });
+    }
+  })();
+
   </script>
 
 </body>

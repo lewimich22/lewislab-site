@@ -502,7 +502,15 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    
+  function fireEvent(name, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', name, params || {});
+    }
+  }
+
     function startDiagnostic() {
+      fireEvent('diagnostic_start');
       answers = {};
       evidence = { Strategy: null, Reporting: null, Execution: null, Growth: null, Operations: null, 'Systems & Automation': null };
       currentStep = 0;
@@ -632,6 +640,7 @@
     }
 
     function renderResults() {
+      fireEvent('diagnostic_complete');
       const scores = calculateCategoryScores();
       const overall = calculateOverallScore();
       const lowest = getLowestCategory(scores);
@@ -785,6 +794,18 @@
       const im = inputmode ? ` inputmode="${inputmode}"` : '';
       return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req}${im} /></div>`;
     }
+
+
+  // GA4 — lead_submit_diagnostic (delegated, form built dynamically)
+  document.addEventListener('submit', function(e) {
+    var form = e.target;
+    if (form && form.action && form.action.indexOf('formsubmit.co') !== -1) {
+      if (!form.dataset.gaAttached) {
+        form.dataset.gaAttached = '1';
+        fireEvent('lead_submit_diagnostic');
+      }
+    }
+  });
 
   </script>
 </body>

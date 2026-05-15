@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWQ0990PC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SXWQ0990PC');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Speed to Lead: Why Businesses Lose Sales Before Anyone Responds | Lewis Lab</title>
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <meta name="description" content="Most businesses do not lose inbound leads because of price. They lose them because response systems are structurally broken. Here is how speed to lead affects conversion, revenue, and lead leakage." />
+
+  <meta property="og:title" content="Speed to Lead: Why Businesses Lose Sales Before Anyone Responds" />
+  <meta property="og:description" content="Speed to lead is not a sales tactic. It is an operational test. Here is where most response systems break and what to fix first." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://lewislab.io/posts/speed-to-lead.html" />
+  <meta property="og:site_name" content="Lewis Lab" />
+  <meta property="og:image" content="https://lewislab.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Speed to Lead: Why Businesses Lose Sales Before Anyone Responds" />
+  <meta name="twitter:description" content="Speed to lead is not a sales tactic. It is an operational test. Here is where most response systems break and what to fix first." />
+  <meta name="twitter:image" content="https://lewislab.io/og-image.png" />
+
+  <link rel="canonical" href="https://lewislab.io/posts/speed-to-lead.html" />
+  <meta property="article:published_time" content="2026-05-14" />
+  <meta property="article:section" content="Operations" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:       #0D0D0D;
+      --moss:      #527D45;
+      --prussian:  #1E3A4A;
+      --parchment: #F5F4F0;
+      --stone:     #888880;
+      --white:     #FFFFFF;
+      --display:   "Host Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --body:      "Host Grotesk", sans-serif;
+      --wordmark:  "Exo 2", sans-serif;
+      --pad:       3.25rem;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--parchment);
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+      padding: 0.9rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-mark { height: 36px; width: auto; display: block; flex-shrink: 0; }
+
+    .nav-logo-divider {
+      width: 1px; height: 28px;
+      background: var(--ink);
+      margin: 0 16px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: var(--wordmark);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0;
+      bottom: -0.35rem;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus { color: var(--ink); }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after { transform: scaleX(1); }
+
+    .nav-links a[aria-current="page"] { color: var(--ink); }
+    .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+    .post-header {
+      padding: 7rem var(--pad) 3rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta time {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    .post-category {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--moss);
+      background: rgba(82,125,69,0.1);
+      padding: 0.2rem 0.55rem;
+    }
+
+    .post-title {
+      font-family: var(--display);
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .post-dek {
+      font-size: 1.2rem;
+      color: var(--stone);
+      line-height: 1.6;
+      max-width: 58ch;
+    }
+
+    .post-rule {
+      border: none;
+      border-top: 1px solid rgba(13,13,13,0.1);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .post-body {
+      padding: 3rem var(--pad) 5rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .post-body p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+
+    .post-body p:last-child { margin-bottom: 0; }
+
+    .post-body strong {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .post-body h2 {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-cta {
+      display: inline-block;
+      font-family: var(--body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 0.875rem 2rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .post-cta:hover,
+    .post-cta:focus,
+    .post-cta:active { background: var(--moss); }
+
+    .stat-callout {
+      border-left: 3px solid var(--moss);
+      padding: 1.25rem 1.5rem;
+      margin: 2.25rem 0;
+      background: rgba(82,125,69,0.06);
+    }
+
+    .stat-callout p {
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 0;
+    }
+
+    .stat-callout span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 0.4rem;
+    }
+
+    .diagnostic-box {
+      border: 1.5px solid rgba(13,13,13,0.12);
+      padding: 2rem;
+      margin: 2.5rem 0;
+      background: var(--white);
+    }
+
+    .diagnostic-box p.box-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--moss);
+      margin-bottom: 1rem;
+    }
+
+    .diagnostic-box ol {
+      list-style: none;
+      counter-reset: diag;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .diagnostic-box ol li {
+      counter-increment: diag;
+      display: flex;
+      gap: 1rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .diagnostic-box ol li::before {
+      content: counter(diag);
+      font-family: var(--wordmark);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--stone);
+      flex-shrink: 0;
+      width: 1.5rem;
+      padding-top: 0.05rem;
+    }
+
+    .source-note {
+      border-top: 1px solid rgba(13,13,13,0.12);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+    }
+
+    .source-note p.source-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.9rem;
+    }
+
+    .source-note ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      list-style: none;
+    }
+
+    .source-note li {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: var(--stone);
+    }
+
+    .source-note a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    .source-note a:hover { color: var(--moss); }
+
+    .back-link {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      padding: 2rem var(--pad) 0;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    footer {
+      padding: 1.3rem var(--pad);
+      border-top: 1px solid rgba(13,13,13,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo { display: flex; align-items: center; }
+    .footer-logo-mark { height: 24px; width: auto; display: block; }
+
+    .footer-logo-divider {
+      width: 1px; height: 18px;
+      background: var(--stone);
+      margin: 0 12px;
+    }
+
+    .footer-logo-text {
+      font-family: var(--wordmark);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    footer span {
+      font-size: 0.7rem;
+      color: var(--stone);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      :root { --pad: 1.5rem; }
+      nav { padding: 0.85rem 1.2rem; }
+      .nav-logo-mark { height: 28px; }
+      .nav-logo-text { font-size: 14px; letter-spacing: 0.15em; }
+      .nav-logo-divider { margin: 0 10px; height: 22px; }
+      .nav-links { gap: 0.9rem; }
+      .nav-links a { font-size: 0.68rem; letter-spacing: 0.08em; }
+      .nav-links a::after { display: none; }
+      .post-header { padding: 5.5rem var(--pad) 2.25rem; }
+      .post-body { padding: 2.5rem var(--pad) 4rem; }
+      .post-body p { font-size: 1rem; }
+      .stat-callout p { font-size: 1.15rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    }
+
+    @media (max-width: 430px) {
+      nav { padding-left: 0.95rem; padding-right: 0.95rem; }
+      .nav-logo-mark { height: 27px; }
+      .nav-logo-divider { margin: 0 8px; height: 21px; }
+      .nav-logo-text { font-size: 13px; letter-spacing: 0.13em; }
+      .nav-links { gap: 0.68rem; }
+      .nav-links a { font-size: 0.63rem; letter-spacing: 0.06em; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Primary navigation">
+    <a class="nav-logo" href="../index.html">
+      <svg class="nav-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#0D0D0D" d="M6.74,660.85c7.02-159.58,13.14-327.38,18.73-486.98,1.42-40.33,4.12-121.96,5.39-162.32.09-2.71,2.36-4.84,5.07-4.75,2.6.09,4.66,2.19,4.75,4.75,1.85,58.76,4.8,144.44,6.83,202.91,4.75,131.63,9.98,274.19,15.64,405.82l1.77,40.58c.7,16.07-11.75,29.66-27.82,30.37-16.96.84-31.19-13.41-30.37-30.37Z"/>
+        <path fill="#0D0D0D" d="M314.56,666.42c-2.31-2.74-3.53-6.23-3.49-9.82,1.98-178.8,2.15-376.42,8.24-554.04.39-12.36.84-24.72,1.33-37.08.09-2.35,1.86-4.4,4.21-4.6,2.69-.23,4.92,1.85,5.02,4.41.49,12.42.94,24.85,1.34,37.27,4.48,129.96,5.91,279.08,6.86,410.02l1.44,149.1c-.47,17.13-13.09,18.83-24.96,4.74Z"/>
+        <path fill="#0D0D0D" d="M454.91,651.13c4.17,1.43,19.13,5.58,24.47,7.25,1.86.59,1.94-.93,2.38-2.91,15.63-75.5,30.93-151.11,52.84-225.08,1.1-3.63,2.43-6.85,3.34-9.95,2.29-7.8-2.1-16.02-9.85-18.46-127.93-40.3-273.09-36.7-402.8-4.19-9.32,3.27-9.6,12.77-6.62,21.06,23.02,77.64,36,158.34,52.92,237.06,7.51-1.54,20.65-5.49,25.8-7.02-4.83-43.93-22.15-205.22-23.39-216.38,96.71-36.62,209.86-37.64,306.86,1.56l-25.94,217.06Z"/>
+        <path fill="#0D0D0D" d="M133.89,224.09c51.72-19.11,148.16-22.55,199.22-1.15l3.2,1.41c.53.24,1.06.46,1.58.72,1.38.72,3.26,1.65,4.64,2.4,1.43.89,4.52,2.61,5.89,3.69.94.67,1.88,1.34,2.79,2.02,3.82,2.96.09,8.26-4.67,6.59l-.3-.11c-15.37-5.71-32.43-7.42-49.44-8.24-17.05-.73-34.29-.34-51.42.97-25.59,2-50.8,5.64-75.42,11.7-7.84,1.93-15.56,4.22-23.11,6.87-20.92,7.03-33.4-18.68-12.97-26.87Z"/>
+        <path fill="#0D0D0D" d="M28.8,639.12c121.17-28.14,377.55-59.78,481.75,14.68,9.03,6.62,17.29,14.46,23.92,23.44,1.69,2.3,1.5,5.62-.74,7.39-1.87,1.48-4.41,1.45-6.23.14-6.47-4.85-13.12-9.12-20.2-12.92-65.83-33.13-146.59-31.24-218.57-25.84-41.72,3.54-83.27,9.57-124.44,17.19-41.07,7.69-81.96,16.79-122.2,27.91-14.28,4.01-29.11-4.34-33.1-18.62-4.14-14.68,4.94-29.97,19.8-33.37Z"/>
+      </svg>
+      <div class="nav-logo-divider"></div>
+      <span class="nav-logo-text">Lewis Lab</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#services">Work</a></li>
+      <li><a href="../blog.html" aria-current="page">Field Notes</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <a class="back-link" href="../blog.html">← Field Notes</a>
+
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="2026-05-14">May 14, 2026</time>
+        <span class="post-category">Operations</span>
+      </div>
+      <h1 class="post-title">Speed to Lead: Why Businesses Lose Sales Before Anyone Responds</h1>
+      <p class="post-dek">Speed to lead is not a sales tactic. It is an operational test. Here is where most response systems break and what to fix first.</p>
+    </header>
+
+    <hr class="post-rule" />
+
+    <article class="post-body">
+
+      <p>When a prospect submits a contact form, requests a demo, or fills out a quote request, their intent is at its peak. That moment is one of the highest-value windows in the sales cycle. But for many businesses, the opportunity starts decaying before anyone responds.</p>
+
+      <p>This is not usually a sales effort problem. It is a response system problem.</p>
+
+      <h2>The five-minute rule still matters</h2>
+
+      <p>Research on lead response has been consistent for over a decade. Companies that respond within five minutes are 21 times more likely to qualify a lead than those that wait 30 minutes. The odds of establishing contact at all are 100 times higher in that first five-minute window.</p>
+
+      <p>The reason is buyer psychology. A prospect who just submitted a form is actively thinking about the problem they want solved. That attention does not hold. They are likely researching two or three competitors at the same time. The first company to respond anchors the conversation. Waiting does not just reduce your odds of closing. It often means you never get a conversation at all.</p>
+
+      <p>The five-minute rule is not new. What is new is how thoroughly most businesses still fail to meet it. That gap is where the diagnostic work starts.</p>
+
+      <h2>The real problem is not speed. It is silence.</h2>
+
+      <p>RevenueHero tested 1,000 companies by submitting demo requests and tracking responses. Only 365 of those companies responded at all. The other 635, representing 63.5 percent of the sample, never replied. Among the companies that did respond, the average response time was one day, five hours, and seventeen minutes.</p>
+
+      <div class="stat-callout">
+        <p>63.5 percent of companies never responded at all.</p>
+        <span>RevenueHero, 1,000-company demo request study</span>
+      </div>
+
+      <p>That is the baseline most businesses are operating from. Not slow. Absent.</p>
+
+      <p>Across recent B2B response-time benchmarks, inbound lead response is still commonly measured in hours, not minutes. The gap between where most businesses actually operate and where the five-minute standard sits is not a small improvement project. It is a fundamental infrastructure gap.</p>
+
+      <p>Leaders know this is a problem. The data suggests they cannot fix it through effort alone. When leaders say speed is essential and their teams still respond in hours, the bottleneck is not motivation. It is the system.</p>
+
+      <h2>Slow response is usually a routing problem</h2>
+
+      <p>A large share of response delay happens before a rep ever sees the lead. The gap between a form submission and a lead landing in front of a human includes data enrichment, lead-to-account matching, territory assignment, and CRM lead assignment. If that sequence is manual and sequential, the lead can go cold before anyone even sees it.</p>
+
+      <p>Manual operators are significantly more likely to experience lead leakage than businesses using automated routing. The failure is not laziness. It is architecture. Leads fall through because of unclear ownership, shared inboxes with no assignment logic, after-hours leads with no coverage system, and no escalation when follow-up does not happen.</p>
+
+      <p>The fix is not more hustle. It is better routing.</p>
+
+      <div class="stat-callout">
+        <p>Speed to lead is not really a sales tactic. It is an operational test.</p>
+        <span>When a high-intent inquiry comes in, your business either has a system that captures the moment or one that lets it decay.</span>
+      </div>
+
+      <h2>What slow response costs</h2>
+
+      <p>As an illustrative model, consider a business receiving 100 high-intent leads per month with an average deal size of $10,000.</p>
+
+      <p>Responding within five minutes, research suggests a lead-to-opportunity conversion rate around 21 percent. At an assumed 20 percent close rate, that produces $42,000 in monthly revenue from those 100 leads.</p>
+
+      <p>The same business responding 24 hours later converts at roughly 2.3 percent. Same leads, same deal size, same close rate. Monthly revenue from those 100 leads drops to $4,600.</p>
+
+      <div class="diagnostic-box">
+        <p class="box-label">The revenue math</p>
+        <ol>
+          <li>5-minute response: 100 leads × 21% conversion × 20% close × $10,000 = $42,000/mo</li>
+          <li>24-hour response: 100 leads × 2.3% conversion × 20% close × $10,000 = $4,600/mo</li>
+          <li>Monthly revenue gap: $37,400. Annualized: $448,800.</li>
+        </ol>
+      </div>
+
+      <p>If your average cost per lead is $213, you are spending $21,300 per month to generate leads your process is not fast enough to capture. Slow response is not a neutral operational gap. It is a measurable revenue leak.</p>
+
+      <h2>Where leads usually leak</h2>
+
+      <p>Three failure points show up consistently. The first is no routing logic. Without automated assignment, leads land in shared inboxes or get manually distributed. Companies without routing tools average over 13 hours for a first response. Those with routing tools average 3.5 hours.</p>
+
+      <p>The second is no response SLA. Only 29.5 percent of companies without a published SLA respond within 15 minutes. Among those with a defined standard, 54.9 percent hit that mark. A response SLA creates accountability by making expectations explicit across marketing and sales. If there is no policy, there is no pressure.</p>
+
+      <p>The third is the after-hours gap. About 25 percent of companies provide no meaningful response to after-hours leads. Nearly half of all high-intent inquiries arrive in the evenings or on weekends. Companies relying entirely on manual follow-up forfeit a substantial portion of their pipeline before the workweek starts.</p>
+
+      <h2>What to fix first</h2>
+
+      <p>Pull 50 recent leads from your CRM and calculate the actual time between form submission and first human contact. Do not count automated confirmation emails. Find your median. Write it down. Then break it out by channel: contact form, quote request, demo request, chat, phone, and direct email. The gaps are rarely uniform across channels.</p>
+
+      <p>Then map where leads sit during the processing phase. Identify the gap between lead creation and CRM lead assignment. If that gap is longer than five minutes, the infrastructure needs attention before anything else does.</p>
+
+      <p>Then define a response SLA by lead type. High-intent requests, demo inquiries, and quote forms should each have a response target. Put that metric somewhere visible. Tie it to accountability. Response time will not improve if it is not measured.</p>
+
+      <p>Finally, close the after-hours gap. Even if a human cannot call at 9 PM, the system should confirm the request, set a clear next step, offer a scheduling option, and alert the right owner. That is not a nice touch. It is the difference between capturing the lead and losing it to whoever responds first.</p>
+
+      <h2>The bottom line</h2>
+
+      <p>Speed to lead is no longer a nice-to-have. For businesses paying to generate inbound demand, it is basic revenue infrastructure.</p>
+
+      <p>You do not need to outspend competitors to win more of what you are already generating. You need a system that responds before the moment decays.</p>
+
+      <a class="post-cta" href="../index.html#contact">Start with a diagnostic</a>
+
+      <div class="source-note">
+        <p class="source-label">Sources and further reading</p>
+        <ul>
+          <li><a href="https://www.revenuehero.io/blog/lead-response-time" target="_blank" rel="noopener">RevenueHero: Lead response time study across 1,000 B2B websites</a></li>
+          <li><a href="https://www.prnewswire.com/news-releases/blazeo-unveils-2026-speed-to-lead-benchmark-report-revealing-businesses-are-failing-their-own-response-time-standards-302694994.html" target="_blank" rel="noopener">Blazeo: 2026 Speed-to-Lead Benchmark Report</a></li>
+          <li><a href="https://www.leandata.com/resources/speed-to-lead-in-2026/" target="_blank" rel="noopener">LeanData: Speed to Lead in 2026</a></li>
+          <li><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Harvard Business Review: The Short Life of Online Sales Leads</a></li>
+          <li><a href="https://www.apten.ai/blog/speed-to-lead-benchmarks-2026" target="_blank" rel="noopener">Apten: Speed-to-Lead Benchmarks 2026</a></li>
+        </ul>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <svg class="footer-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path fill="#888880" d="M6.74,660.85c7.02-159.58,13.14-327.38,18.73-486.98,1.42-40.33,4.12-121.96,5.39-162.32.09-2.71,2.36-4.84,5.07-4.75,2.6.09,4.66,2.19,4.75,4.75,1.85,58.76,4.8,144.44,6.83,202.91,4.75,131.63,9.98,274.19,15.64,405.82l1.77,40.58c.7,16.07-11.75,29.66-27.82,30.37-16.96.84-31.19-13.41-30.37-30.37Z"/>
+        <path fill="#888880" d="M314.56,666.42c-2.31-2.74-3.53-6.23-3.49-9.82,1.98-178.8,2.15-376.42,8.24-554.04.39-12.36.84-24.72,1.33-37.08.09-2.35,1.86-4.4,4.21-4.6,2.69-.23,4.92,1.85,5.02,4.41.49,12.42.94,24.85,1.34,37.27,4.48,129.96,5.91,279.08,6.86,410.02l1.44,149.1c-.47,17.13-13.09,18.83-24.96,4.74Z"/>
+        <path fill="#888880" d="M454.91,651.13c4.17,1.43,19.13,5.58,24.47,7.25,1.86.59,1.94-.93,2.38-2.91,15.63-75.5,30.93-151.11,52.84-225.08,1.1-3.63,2.43-6.85,3.34-9.95,2.29-7.8-2.1-16.02-9.85-18.46-127.93-40.3-273.09-36.7-402.8-4.19-9.32,3.27-9.6,12.77-6.62,21.06,23.02,77.64,36,158.34,52.92,237.06,7.51-1.54,20.65-5.49,25.8-7.02-4.83-43.93-22.15-205.22-23.39-216.38,96.71-36.62,209.86-37.64,306.86,1.56l-25.94,217.06Z"/>
+        <path fill="#888880" d="M133.89,224.09c51.72-19.11,148.16-22.55,199.22-1.15l3.2,1.41c.53.24,1.06.46,1.58.72,1.38.72,3.26,1.65,4.64,2.4,1.43.89,4.52,2.61,5.89,3.69.94.67,1.88,1.34,2.79,2.02,3.82,2.96.09,8.26-4.67,6.59l-.3-.11c-15.37-5.71-32.43-7.42-49.44-8.24-17.05-.73-34.29-.34-51.42.97-25.59,2-50.8,5.64-75.42,11.7-7.84,1.93-15.56,4.22-23.11,6.87-20.92,7.03-33.4-18.68-12.97-26.87Z"/>
+        <path fill="#888880" d="M28.8,639.12c121.17-28.14,377.55-59.78,481.75,14.68,9.03,6.62,17.29,14.46,23.92,23.44,1.69,2.3,1.5,5.62-.74,7.39-1.87,1.48-4.41,1.45-6.23.14-6.47-4.85-13.12-9.12-20.2-12.92-65.83-33.13-146.59-31.24-218.57-25.84-41.72,3.54-83.27,9.57-124.44,17.19-41.07,7.69-81.96,16.79-122.2,27.91-14.28,4.01-29.11-4.34-33.1-18.62-4.14-14.68,4.94-29.97,19.8-33.37Z"/>
+      </svg>
+      <div class="footer-logo-divider"></div>
+      <span class="footer-logo-text">Lewis Lab</span>
+    </div>
+    <span>© 2026 Lewis Lab</span>
+  </footer>
+
+</body>
+</html>

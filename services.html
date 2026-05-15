@@ -120,88 +120,7 @@
     }
 
     /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--parchment);
-      border-bottom: 1px solid rgba(13,13,13,0.08);
-      padding: 0.9rem var(--pad);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-mark {
-      height: 36px;
-      width: auto;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-divider {
-      width: 1px;
-      height: 28px;
-      background: var(--ink);
-      margin: 0 16px;
-      flex-shrink: 0;
-    }
-
-    .nav-logo-text {
-      font-family: var(--wordmark);
-      font-weight: 500;
-      font-size: 18px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink);
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      align-items: center;
-    }
-
-    .nav-links a {
-      position: relative;
-      font-family: var(--body);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--stone);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0; right: 0;
-      bottom: -0.35rem;
-      height: 1px;
-      background: var(--ink);
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus { color: var(--ink); }
-
-    .nav-links a:hover::after,
-    .nav-links a:focus::after { transform: scaleX(1); }
+    
 
     .nav-links a.active { color: var(--ink); }
     .nav-links a.active::after { transform: scaleX(1); }
@@ -231,7 +150,7 @@
 
     /* PAGE HERO */
     .page-hero {
-      padding: 5rem var(--pad) 3.5rem;
+      padding: 3.5rem var(--pad) 3.5rem;
       max-width: 72rem;
     }
 
@@ -727,18 +646,132 @@
     }
 
     /* MOBILE */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--parchment);
+      border-bottom: 1px solid rgba(13,13,13,0.08);
+      padding: 0.9rem var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-mark {
+      height: 36px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--ink);
+      margin: 0 16px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: var(--wordmark);
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-family: var(--body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.35rem;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+      transform: scaleX(1);
+    }
+
+    .nav-links a[aria-current="page"] { color: var(--ink); }
+    .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+
+    .mobile-hide { display: inline; }
+
     @media (max-width: 768px) {
+      nav {
+        padding: 0.85rem 1.2rem;
+      }
+
+      .nav-logo-mark  { height: 28px; }
+
+      .nav-logo-text  {
+        font-size: 14px;
+        letter-spacing: 0.15em;
+      }
+
+      .nav-logo-divider {
+        margin: 0 10px;
+        height: 22px;
+      }
+
+      .nav-links {
+        gap: 0.7rem;
+      }
+
+      .nav-links a {
+        font-size: 0.64rem;
+        letter-spacing: 0.07em;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
       :root { --pad: 1.5rem; }
 
-      nav { padding: 0.85rem 1.2rem; }
-      .nav-logo-mark { height: 28px; }
-      .nav-logo-text { font-size: 14px; letter-spacing: 0.15em; }
-      .nav-logo-divider { margin: 0 10px; height: 22px; }
-      .nav-links { gap: 0.7rem; }
-      .nav-links a { font-size: 0.64rem; letter-spacing: 0.07em; }
-      .nav-links a::after { display: none; }
-
-      .page-hero { padding: 4.5rem var(--pad) 2.5rem; }
+      .page-hero { padding: 3rem var(--pad) 2.5rem; }
 
       .content-grid,
       .why-grid,
@@ -752,7 +785,7 @@
       .contact-heading {
         font-size: clamp(2rem, 8.2vw, 2.8rem);
         letter-spacing: -0.04em;
-      }
+    }
 
       .content-body,
       .why-body { font-size: 1rem; }
@@ -778,11 +811,42 @@
         gap: 0.55rem;
       }
 
-      .nav-links a { font-size: 0.62rem; letter-spacing: 0.065em; white-space: nowrap; }
+      .nav-links a {
+        font-size: 0.62rem;
+        letter-spacing: 0.065em;
+        white-space: nowrap;
+      }
+    }
 
-      main { padding-top: 6.5rem; }
+    @media (max-width: 430px) {
+      nav {
+        padding-left: 0.95rem;
+        padding-right: 0.95rem;
+      }
 
-      .problems-grid { grid-template-columns: 1fr; }
+      .nav-logo-mark {
+        height: 27px;
+      }
+
+      .nav-logo-divider {
+        margin: 0 8px;
+        height: 21px;
+      }
+
+      .nav-logo-text {
+        font-size: 13px;
+        letter-spacing: 0.13em;
+      }
+
+      .nav-links {
+        gap: 0.68rem;
+      }
+
+      .nav-links a {
+        font-size: 0.63rem;
+        letter-spacing: 0.06em;
+      }
+
     }
   </style>
 </head>
@@ -803,10 +867,10 @@
 
     <ul class="nav-links">
       <li class="mobile-hide"><a href="index.html#about">About</a></li>
-      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="services.html" aria-current="page">Services</a></li>
       <li><a href="index.html#services">Work</a></li>
       <li><a href="blog.html">Field Notes</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -1104,15 +1168,18 @@
     revealEls.forEach((el) => observer.observe(el));
 
     // Smooth scroll for nav contact link
-    document.querySelector('a[href="#contact"]').addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.getElementById('contact');
-      if (!target) return;
-      const nav = document.querySelector('nav');
-      const offset = nav ? nav.offsetHeight + 16 : 0;
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
-      history.pushState(null, '', '#contact');
-    });
+    const contactNavLink = document.querySelector('a[href="#contact"]');
+    if (contactNavLink) {
+      contactNavLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.getElementById('contact');
+        if (!target) return;
+        const nav = document.querySelector('nav');
+        const offset = nav ? nav.offsetHeight + 16 : 0;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+        history.pushState(null, '', '#contact');
+      });
+    }
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach((btn) => {

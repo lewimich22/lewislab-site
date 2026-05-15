@@ -87,17 +87,58 @@
   </script>
 
   <style>
-    /* ── SERVICES PAGE-SPECIFIC CSS ── */
+    /* ============================================================
+       SERVICES PAGE-SPECIFIC CSS
+       All selectors scoped to .services-page where possible.
+       Does not affect index.html, blog.html, diagnostic.html, or posts.
+       ============================================================ */
 
-    main { padding-top: 4.5rem; }
+    /* ── LAYOUT FOUNDATION ── */
 
-    /* Page hero */
-    .page-hero {
-      padding: 3.5rem var(--pad) 2.75rem;
+    .services-page main {
+      padding-top: 4.5rem;
+    }
+
+    /*
+      .sp-container: consistent content container for every section.
+      72rem max-width, horizontally centered, side gutters via --pad.
+    */
+    .sp-container {
+      max-width: 72rem;
+      width: calc(100% - 2 * var(--pad));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Standard section vertical padding */
+    .sp-section {
+      padding: 4rem 0;
+    }
+
+    /* Full-bleed section (e.g. problems dark band): handles its own bg,
+       inner content still uses .sp-container */
+    .sp-section-bleed {
+      padding: 4rem 0;
+    }
+
+    /* Section dividers: same width as .sp-container */
+    .sp-rule {
+      border: none;
+      border-top: 1px solid rgba(13,13,13,0.1);
+      max-width: 72rem;
+      width: calc(100% - 2 * var(--pad));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── HERO ── */
+
+    .services-page .page-hero {
+      padding: 3.5rem 0 3rem;
       max-width: 56rem;
     }
 
-    .page-hero-label {
+    .services-page .page-hero-label {
       font-family: var(--body);
       font-size: 0.78rem;
       font-weight: 600;
@@ -107,52 +148,89 @@
       margin-bottom: 1.25rem;
     }
 
-    .page-hero h1 {
+    .services-page .page-hero h1 {
       font-family: var(--display);
-      font-size: clamp(2.6rem, 4.5vw, 4.75rem);
+      font-size: clamp(2.4rem, 4vw, 4.25rem);
       font-weight: 700;
-      line-height: 1.02;
+      line-height: 1.04;
       letter-spacing: -0.035em;
       color: var(--ink);
-      max-width: 18ch;
+      max-width: 20ch;
       margin-bottom: 1.5rem;
     }
 
-    .page-hero-sub {
-      font-size: 1.15rem;
+    .services-page .page-hero-sub {
+      font-size: 1.1rem;
       color: var(--stone);
       line-height: 1.7;
-      max-width: 58ch;
+      max-width: 52ch;
       margin-bottom: 2rem;
     }
 
-    /* Content sections */
-    .content-grid {
+    /* ── TWO-COLUMN GRID (The Work, Why Lewis Lab, Contact) ── */
+
+    .sp-two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 3.75rem;
+      gap: 4rem;
       align-items: start;
-      max-width: 82rem;
     }
 
-    .content-heading {
+    /* ── HEADINGS ── */
+
+    .sp-heading {
       font-family: var(--display);
-      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      font-size: clamp(1.85rem, 2.8vw, 2.9rem);
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
+      color: var(--ink);
       max-width: 16ch;
     }
 
-    .content-body {
-      font-size: 1.08rem;
+    /* Wider variant for sections with a supporting paragraph below */
+    .sp-heading-wide {
+      font-family: var(--display);
+      font-size: clamp(1.85rem, 2.8vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      max-width: 24ch;
+      margin-bottom: 1rem;
+    }
+
+    /* ── BODY TEXT ── */
+
+    .sp-body {
+      font-size: 1.05rem;
       color: var(--stone);
       line-height: 1.75;
     }
 
-    .content-body p + p { margin-top: 1.25rem; }
+    .sp-body p + p {
+      margin-top: 1.25rem;
+    }
 
-    /* Process list */
+    /* Stand-alone intro paragraph (Who This Is For) */
+    .sp-intro {
+      font-size: 1.05rem;
+      color: var(--stone);
+      line-height: 1.75;
+      max-width: 58ch;
+      margin-bottom: 2rem;
+    }
+
+    /* Note paragraph after process list */
+    .sp-body-note {
+      margin-top: 1.5rem;
+      font-size: 1.02rem;
+      color: var(--stone);
+      line-height: 1.75;
+    }
+
+    /* ── PROCESS LIST ── */
+
     .process-list {
       list-style: none;
       margin-top: 1.5rem;
@@ -164,7 +242,7 @@
       gap: 1.1rem;
       padding: 1rem 0;
       border-bottom: 1px solid rgba(13,13,13,0.08);
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--stone);
       line-height: 1.6;
     }
@@ -185,7 +263,8 @@
       width: 1.6rem;
     }
 
-    /* Problems section */
+    /* ── PROBLEMS SECTION ── */
+
     .problems-section {
       background: var(--prussian);
       color: var(--white);
@@ -197,11 +276,12 @@
 
     .problems-heading {
       font-family: var(--display);
-      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      font-size: clamp(1.85rem, 2.8vw, 2.9rem);
       font-weight: 700;
       letter-spacing: -0.03em;
+      line-height: 1.08;
       margin-bottom: 2.25rem;
-      max-width: 16ch;
+      max-width: 28ch;
       color: var(--white);
     }
 
@@ -260,7 +340,8 @@
       line-height: 1.65;
     }
 
-    /* Fit table */
+    /* ── FIT TABLE ── */
+
     .fit-table-wrap {
       overflow-x: auto;
       margin-top: 1.75rem;
@@ -298,32 +379,18 @@
     .fit-table tr:last-child td { border-bottom: none; }
     .fit-yes { color: var(--ink); }
 
-    /* Why section */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.75rem;
-      align-items: start;
-      max-width: 82rem;
-    }
+    /* ── WHY LEWIS LAB ── */
 
     .why-heading {
       font-family: var(--display);
-      font-size: clamp(2rem, 3.2vw, 3.25rem);
+      font-size: clamp(1.85rem, 2.8vw, 2.9rem);
       font-weight: 700;
       line-height: 1.08;
       letter-spacing: -0.03em;
       max-width: 14ch;
       margin-bottom: 1.5rem;
+      color: var(--ink);
     }
-
-    .why-body {
-      font-size: 1.08rem;
-      color: var(--stone);
-      line-height: 1.75;
-    }
-
-    .why-body p + p { margin-top: 1.25rem; }
 
     .differentiators {
       list-style: none;
@@ -353,8 +420,9 @@
       margin-top: 0.5rem;
     }
 
-    /* FAQ */
-    .faq-section { max-width: 56rem; }
+    /* ── FAQ ── */
+
+    .faq-section { max-width: 52rem; }
     .faq-list { margin-top: 0.5rem; }
 
     .faq-item {
@@ -415,36 +483,60 @@
       line-height: 1.75;
     }
 
-    /* Mobile overrides */
+    /* ── MOBILE ── */
+
     @media (max-width: 768px) {
-      .page-hero { padding: 3rem var(--pad) 2.5rem; }
 
-      .content-grid,
-      .why-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .sp-section,
+      .sp-section-bleed {
+        padding: 3rem 0;
+      }
 
-      .problems-grid { grid-template-columns: 1fr 1fr; }
+      .services-page .page-hero {
+        padding: 3rem 0 2.5rem;
+      }
 
-      .problem-card { padding: 1.25rem 1.25rem; }
+      .sp-two-col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
 
-      .content-heading,
-      .problems-heading,
+      .problems-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .problem-card {
+        padding: 1.25rem 1.25rem;
+      }
+
+      .sp-heading,
+      .sp-heading-wide,
       .why-heading,
-      .contact-heading {
-        font-size: clamp(2rem, 8.2vw, 2.8rem);
-        letter-spacing: -0.04em;
+      .problems-heading {
+        font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+        letter-spacing: -0.03em;
+        max-width: none;
       }
 
-      .contact-heading {
-        font-size: clamp(2rem, 8.2vw, 2.4rem);
+      .services-page .contact-heading {
+        font-size: clamp(1.75rem, 7.5vw, 2.4rem);
       }
 
-      .content-body,
-      .why-body { font-size: 1rem; }
+      .fit-table th,
+      .fit-table td {
+        font-size: 0.9rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .fit-table th:last-child,
+      .fit-table td:last-child {
+        padding-left: 1.25rem;
+      }
     }
   </style>
 </head>
-<body>
+<body class="services-page">
 
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="index.html">
@@ -471,40 +563,47 @@
   <main>
     <article>
 
-      <section class="page-hero reveal">
-        <p class="page-hero-label">What We Do</p>
-        <h1>Performance Diagnostics for Multi-Location Businesses</h1>
-        <p class="page-hero-sub">Lewis Lab delivers structured 30-day diagnostics and targeted performance consulting for established private businesses. We plug into your data, identify where revenue, leads, time, or capacity are leaking, and define what to do about it.</p>
-        <a class="page-hero-cta" href="diagnostic.html">Start with a diagnostic</a>
-      </section>
+      <!-- ── HERO ── -->
+      <div class="sp-container">
+        <section class="page-hero reveal" aria-label="Services overview">
+          <p class="page-hero-label">What We Do</p>
+          <h1>Performance Diagnostics for Multi-Location Businesses</h1>
+          <p class="page-hero-sub">Lewis Lab delivers structured 30-day diagnostics and targeted performance consulting for established private businesses. We plug into your data, identify where revenue, leads, time, or capacity are leaking, and define what to do about it.</p>
+          <a class="page-hero-cta" href="diagnostic.html">Start with a diagnostic</a>
+        </section>
+      </div>
 
-      <hr class="rule" />
+      <hr class="sp-rule" />
 
-      <section class="section reveal" aria-labelledby="what-we-do-heading">
-        <div class="content-grid">
-          <div>
-            <p class="section-label">The Work</p>
-            <h2 class="content-heading" id="what-we-do-heading">Find what is leaking. Prioritize what matters.</h2>
+      <!-- ── THE WORK ── -->
+      <div class="sp-container">
+        <section class="sp-section reveal" aria-labelledby="what-we-do-heading">
+          <div class="sp-two-col">
+            <div>
+              <p class="section-label">The Work</p>
+              <h2 class="sp-heading" id="what-we-do-heading">Find what is leaking. Prioritize what matters.</h2>
+            </div>
+            <div class="sp-body">
+              <p>Lewis Lab delivers hands-on operational diagnostics and targeted performance consulting for established private businesses with real operating data. This is not a large agency model, and it is not a generic strategy engagement. Lewis Lab works directly with your data, your process, and your team to identify where revenue, leads, time, or capacity are leaking, then defines what to do about it.</p>
+              <p>Every engagement starts with a structured 30-day diagnostic. Lewis Lab plugs into your existing systems, reads the actual numbers, and builds a clear picture of where performance breaks down between demand, process, people, and outcomes.</p>
+              <ul class="process-list">
+                <li><span class="process-num">01</span> CRM, DMS, or lead management system review</li>
+                <li><span class="process-num">02</span> Lead response and conversion analysis</li>
+                <li><span class="process-num">03</span> Inventory, capacity, utilization, or throughput assessment</li>
+                <li><span class="process-num">04</span> Team process and hand-off mapping</li>
+                <li><span class="process-num">05</span> Market positioning and performance benchmarking</li>
+              </ul>
+              <p class="sp-body-note">The output is a prioritized action plan with specific, measurable recommendations. Not a slide deck of observations. A working document that shows what is leaking, what matters most, and what your team should do next.</p>
+            </div>
           </div>
-          <div class="content-body">
-            <p>Lewis Lab delivers hands-on operational diagnostics and targeted performance consulting for established private businesses with real operating data. This is not a large agency model, and it is not a generic strategy engagement. Lewis Lab works directly with your data, your process, and your team to identify where revenue, leads, time, or capacity are leaking, then defines what to do about it.</p>
-            <p>Every engagement starts with a structured 30-day diagnostic. Lewis Lab plugs into your existing systems, reads the actual numbers, and builds a clear picture of where performance breaks down between demand, process, people, and outcomes.</p>
-            <ul class="process-list">
-              <li><span class="process-num">01</span> CRM, DMS, or lead management system review</li>
-              <li><span class="process-num">02</span> Lead response and conversion analysis</li>
-              <li><span class="process-num">03</span> Inventory, capacity, utilization, or throughput assessment</li>
-              <li><span class="process-num">04</span> Team process and hand-off mapping</li>
-              <li><span class="process-num">05</span> Market positioning and performance benchmarking</li>
-            </ul>
-            <p style="margin-top:1.5rem;">The output is a prioritized action plan with specific, measurable recommendations. Not a slide deck of observations. A working document that shows what is leaking, what matters most, and what your team should do next.</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <hr class="rule" />
+      <hr class="sp-rule" />
 
-      <section class="problems-section" aria-labelledby="problems-heading">
-        <div class="section">
+      <!-- ── COMMON PROBLEMS (full-bleed dark band) ── -->
+      <section class="problems-section sp-section-bleed" aria-labelledby="problems-heading">
+        <div class="sp-container">
           <p class="section-label">Common Problems We Diagnose</p>
           <h2 class="problems-heading" id="problems-heading">If any of this sounds familiar, it is worth a look.</h2>
           <div class="problems-grid">
@@ -587,148 +686,160 @@
         </div>
       </section>
 
-      <hr class="rule" />
+      <hr class="sp-rule" />
 
-      <section class="section reveal" aria-labelledby="who-heading">
-        <p class="section-label">Who This Is For</p>
-        <h2 class="content-heading" id="who-heading" style="margin-bottom:1rem;">The common thread is not the industry.</h2>
-        <p style="font-size:1.08rem;color:var(--stone);line-height:1.75;max-width:60ch;margin-bottom:0.5rem;">Lewis Lab works with owners and operators of operationally complex businesses across automotive retail, healthcare operations, professional services, and adjacent industries. The problem is the same: performance is not matching the effort, spend, or opportunity in front of the business.</p>
-        <div class="fit-table-wrap">
-          <table class="fit-table">
-            <thead>
-              <tr>
-                <th>You might be a fit if</th>
-                <th>This is probably not for you if</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="fit-yes">Revenue is flat, inconsistent, or underperforming despite real demand</td>
-                <td>You want a generalist agency to run campaigns</td>
-              </tr>
-              <tr>
-                <td class="fit-yes">You have useful data, but no clear operating plan based on it</td>
-                <td>You are looking for a long-term retainer with no defined outcome</td>
-              </tr>
-              <tr>
-                <td class="fit-yes">Conversion, lead response, throughput, or hand-offs are known weak points</td>
-                <td>You are too early-stage to have meaningful lead, sales, or operational data</td>
-              </tr>
-              <tr>
-                <td class="fit-yes">You run multiple rooftops, locations, departments, or service lines</td>
-                <td>You want a report that confirms existing assumptions instead of challenging them</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <hr class="rule" />
-
-      <section class="section reveal" aria-labelledby="why-heading">
-        <div class="why-grid">
-          <div>
-            <p class="section-label">Why Lewis Lab</p>
-            <h2 class="why-heading" id="why-heading">An operator's lens, not a consultant's framework.</h2>
+      <!-- ── WHO THIS IS FOR ── -->
+      <div class="sp-container">
+        <section class="sp-section reveal" aria-labelledby="who-heading">
+          <p class="section-label">Who This Is For</p>
+          <h2 class="sp-heading-wide" id="who-heading">The common thread is not the industry.</h2>
+          <p class="sp-intro">Lewis Lab works with owners and operators of operationally complex businesses across automotive retail, healthcare operations, professional services, and adjacent industries. The problem is the same: performance is not matching the effort, spend, or opportunity in front of the business.</p>
+          <div class="fit-table-wrap">
+            <table class="fit-table">
+              <thead>
+                <tr>
+                  <th>You might be a fit if</th>
+                  <th>This is probably not for you if</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="fit-yes">Revenue is flat, inconsistent, or underperforming despite real demand</td>
+                  <td>You want a generalist agency to run campaigns</td>
+                </tr>
+                <tr>
+                  <td class="fit-yes">You have useful data, but no clear operating plan based on it</td>
+                  <td>You are looking for a long-term retainer with no defined outcome</td>
+                </tr>
+                <tr>
+                  <td class="fit-yes">Conversion, lead response, throughput, or hand-offs are known weak points</td>
+                  <td>You are too early-stage to have meaningful lead, sales, or operational data</td>
+                </tr>
+                <tr>
+                  <td class="fit-yes">You run multiple rooftops, locations, departments, or service lines</td>
+                  <td>You want a report that confirms existing assumptions instead of challenging them</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="why-body">
-            <p>Lewis Lab is built from nearly a decade of hands-on performance management across dealer groups, markets, and multi-location operators. The work included sales growth, market share improvement, inventory strategy, lead management, dealer process, and executive-level performance reviews.</p>
-            <p>That operator lens shapes every engagement. No jargon. No boilerplate frameworks. Just a clear read on what is working, what is not, where performance is leaking, and what to prioritize first.</p>
-            <ul class="differentiators">
-              <li><span class="diff-marker" aria-hidden="true"></span>Founder-led work on every engagement, no junior analysts</li>
-              <li><span class="diff-marker" aria-hidden="true"></span>Data in from day one, no months of discovery</li>
-              <li><span class="diff-marker" aria-hidden="true"></span>Recommendations built for your team to own and execute</li>
-              <li><span class="diff-marker" aria-hidden="true"></span>Operator experience across automotive retail, healthcare operations, and multi-location businesses</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      <hr class="rule" />
+      <hr class="sp-rule" />
 
-      <section class="section" id="contact" aria-labelledby="contact-heading">
-        <p class="section-label">Get in Touch</p>
-        <div class="contact-grid contact-reveal">
-          <div>
-            <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
-            <p class="contact-sub">If you are running a business with real performance data and no clear picture of why results are not matching effort, spend, or opportunity, that is exactly the problem Lewis Lab is built to solve. Start with a diagnostic. Get a clear read on what is leaking, what matters, and what to fix first.</p>
-          </div>
-          <form class="contact-form" action="https://formsubmit.co/hello@lewislab.io" method="POST">
-            <input type="hidden" name="_subject" value="New Lewis Lab services page inquiry" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Name" required />
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="Email" required />
-            <label for="company">Company</label>
-            <input id="company" name="company" type="text" placeholder="Company" />
-            <label for="objective">What's the situation?</label>
-            <textarea id="objective" name="objective" placeholder="What's the situation?"></textarea>
-            <button type="submit">Send message</button>
-          </form>
-        </div>
-      </section>
-
-      <hr class="rule" />
-
-      <section class="section faq-section" aria-labelledby="faq-heading">
-        <p class="section-label">FAQ</p>
-        <h2 class="content-heading" id="faq-heading" style="margin-bottom:1.75rem;">Common questions.</h2>
-        <div class="faq-list" role="list">
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              What industries does Lewis Lab work with?
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer" role="region">
-              <p class="faq-answer-inner">Lewis Lab is currently focused on automotive dealer groups, healthcare operations, professional services, and other established businesses with multiple locations, departments, service lines, or revenue streams. The diagnostic framework is most useful where conversion, throughput, lead management, or operational hand-offs are known gaps.</p>
+      <!-- ── WHY LEWIS LAB ── -->
+      <div class="sp-container">
+        <section class="sp-section reveal" aria-labelledby="why-heading">
+          <div class="sp-two-col">
+            <div>
+              <p class="section-label">Why Lewis Lab</p>
+              <h2 class="why-heading" id="why-heading">An operator's lens, not a consultant's framework.</h2>
+            </div>
+            <div class="sp-body">
+              <p>Lewis Lab is built from nearly a decade of hands-on performance management across dealer groups, markets, and multi-location operators. The work included sales growth, market share improvement, inventory strategy, lead management, dealer process, and executive-level performance reviews.</p>
+              <p>That operator lens shapes every engagement. No jargon. No boilerplate frameworks. Just a clear read on what is working, what is not, where performance is leaking, and what to prioritize first.</p>
+              <ul class="differentiators">
+                <li><span class="diff-marker" aria-hidden="true"></span>Founder-led work on every engagement, no junior analysts</li>
+                <li><span class="diff-marker" aria-hidden="true"></span>Data in from day one, no months of discovery</li>
+                <li><span class="diff-marker" aria-hidden="true"></span>Recommendations built for your team to own and execute</li>
+                <li><span class="diff-marker" aria-hidden="true"></span>Operator experience across automotive retail, healthcare operations, and multi-location businesses</li>
+              </ul>
             </div>
           </div>
+        </section>
+      </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              How long does an engagement typically take?
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer" role="region">
-              <p class="faq-answer-inner">The initial diagnostic runs 30 days. From there, implementation support can be scoped based on what the data shows. Lewis Lab does not do open-ended retainers without a defined outcome.</p>
+      <hr class="sp-rule" />
+
+      <!-- ── CONTACT ── -->
+      <div class="sp-container">
+        <section class="sp-section" id="contact" aria-labelledby="contact-heading">
+          <p class="section-label">Get in Touch</p>
+          <div class="contact-grid contact-reveal">
+            <div>
+              <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
+              <p class="contact-sub">If you are running a business with real performance data and no clear picture of why results are not matching effort, spend, or opportunity, that is exactly the problem Lewis Lab is built to solve. Start with a diagnostic. Get a clear read on what is leaking, what matters, and what to fix first.</p>
             </div>
+            <form class="contact-form" action="https://formsubmit.co/hello@lewislab.io" method="POST">
+              <input type="hidden" name="_subject" value="New Lewis Lab services page inquiry" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Name" required />
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Email" required />
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" placeholder="Company" />
+              <label for="objective">What's the situation?</label>
+              <textarea id="objective" name="objective" placeholder="What's the situation?"></textarea>
+              <button type="submit">Send message</button>
+            </form>
           </div>
+        </section>
+      </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Do you need access to our internal systems?
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer" role="region">
-              <p class="faq-answer-inner">Yes. Read access to your CRM, DMS, lead management platform, reporting dashboards, or equivalent systems is typically required. The diagnostic is built on actual performance data, not interviews, surveys, or assumptions.</p>
+      <hr class="sp-rule" />
+
+      <!-- ── FAQ ── -->
+      <div class="sp-container">
+        <section class="sp-section faq-section" aria-labelledby="faq-heading">
+          <p class="section-label">FAQ</p>
+          <h2 class="sp-heading" id="faq-heading" style="margin-bottom:1.75rem;">Common questions.</h2>
+          <div class="faq-list" role="list">
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                What industries does Lewis Lab work with?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <p class="faq-answer-inner">Lewis Lab is currently focused on automotive dealer groups, healthcare operations, professional services, and other established businesses with multiple locations, departments, service lines, or revenue streams. The diagnostic framework is most useful where conversion, throughput, lead management, or operational hand-offs are known gaps.</p>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              Is Lewis Lab a large consulting firm?
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer" role="region">
-              <p class="faq-answer-inner">No, and that is intentional. Lewis Lab is a lean, founder-led practice. Clients work directly with the principal on every engagement. There are no account managers, junior analysts, or layers between the business and the work.</p>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                How long does an engagement typically take?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <p class="faq-answer-inner">The initial diagnostic runs 30 days. From there, implementation support can be scoped based on what the data shows. Lewis Lab does not do open-ended retainers without a defined outcome.</p>
+              </div>
             </div>
-          </div>
 
-          <div class="faq-item" role="listitem">
-            <button class="faq-question" aria-expanded="false">
-              How is this different from hiring a fractional COO or internal analyst?
-              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="faq-answer" role="region">
-              <p class="faq-answer-inner">A fractional COO usually takes on ongoing management responsibility. An internal analyst may be limited by internal politics, existing assumptions, or day-to-day reporting demands. Lewis Lab comes in from outside, reads the data with objectivity, and delivers a clear picture in a defined timeframe.</p>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Do you need access to our internal systems?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <p class="faq-answer-inner">Yes. Read access to your CRM, DMS, lead management platform, reporting dashboards, or equivalent systems is typically required. The diagnostic is built on actual performance data, not interviews, surveys, or assumptions.</p>
+              </div>
             </div>
-          </div>
 
-        </div>
-      </section>
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                Is Lewis Lab a large consulting firm?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <p class="faq-answer-inner">No, and that is intentional. Lewis Lab is a lean, founder-led practice. Clients work directly with the principal on every engagement. There are no account managers, junior analysts, or layers between the business and the work.</p>
+              </div>
+            </div>
+
+            <div class="faq-item" role="listitem">
+              <button class="faq-question" aria-expanded="false">
+                How is this different from hiring a fractional COO or internal analyst?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <p class="faq-answer-inner">A fractional COO usually takes on ongoing management responsibility. An internal analyst may be limited by internal politics, existing assumptions, or day-to-day reporting demands. Lewis Lab comes in from outside, reads the data with objectivity, and delivers a clear picture in a defined timeframe.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
 
     </article>
   </main>

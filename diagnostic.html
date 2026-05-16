@@ -232,7 +232,8 @@
 
     /* Diagnostic mobile overrides */
     @media (max-width: 768px) {
-      main { padding-top: 0; }
+      /* Two-row mobile nav is ~88px; give all views comfortable clearance */
+      .diagnostic-page main { padding-top: 6rem; }
 
       .section {
         max-width: 100%;
@@ -277,7 +278,7 @@
     }
   </style>
 </head>
-<body>
+<body class="diagnostic-page">
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="index.html">
       <svg class="nav-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -377,12 +378,21 @@
     const TOTAL_STEPS = 6;
 
     // Views
+    function navOffset() {
+      var nav = document.querySelector('nav');
+      return nav ? nav.offsetHeight : 0;
+    }
+
+    function scrollBelowNav() {
+      window.scrollTo({ top: navOffset(), behavior: 'smooth' });
+    }
+
     function showView(id) {
       document.getElementById('view-hero').classList.add('hidden');
       document.getElementById('view-diagnostic').classList.add('hidden');
       document.getElementById('view-results').classList.add('hidden');
       document.getElementById(id).classList.remove('hidden');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      scrollBelowNav();
     }
 
     function fireEvent(name, params) {
@@ -476,7 +486,7 @@
       if (currentStep < TOTAL_STEPS - 1) {
         currentStep++;
         renderDiagnostic();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollBelowNav();
       }
     }
 
@@ -484,7 +494,7 @@
       if (currentStep > 0) {
         currentStep--;
         renderDiagnostic();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        scrollBelowNav();
       }
     }
 

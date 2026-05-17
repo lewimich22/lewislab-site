@@ -29,6 +29,17 @@
     /* Section layout */
     .section { padding: 3.5rem 1.5rem; max-width: 36rem; margin: 0 auto; }
     @media (min-width: 768px) { .section { padding: 3.5rem 3.25rem; } }
+    @media (min-width: 769px) {
+      #view-hero.section-wide {
+        max-width: 72rem;
+        width: calc(100% - 2 * var(--pad));
+        padding: 5rem 0 4rem;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: auto;
+        justify-content: flex-start;
+      }
+    }
     .section-wide { max-width: 64rem; }
 
     /* Typography (diagnostic-specific scale) */
@@ -344,7 +355,7 @@
   </nav>
 
   <main>
-    <div id="view-hero" class="section section-wide" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
+    <div id="view-hero" class="section section-wide" style="display:flex;flex-direction:column;">
       <h1 class="heading-xl">How clear is your business, really?</h1>
       <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2&ndash;3 minutes.</p>
       <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Run the Diagnostic</button>

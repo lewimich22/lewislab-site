@@ -421,6 +421,26 @@ footer span {
   background: rgba(13,13,13,0.08);
 }
 
+@media (min-width: 769px) {
+  .page-header {
+    padding: 7rem 0 3rem;
+    max-width: 72rem;
+    width: calc(100% - 2 * var(--pad));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .blog-section {
+    padding: 3.5rem 0 5rem;
+    max-width: 72rem;
+    width: calc(100% - 2 * var(--pad));
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .post-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .post-card { background: var(--parchment); }
 
 .post-card-inner {

@@ -296,11 +296,18 @@ footer span {
 }
 
 .contact-form label {
-  position: absolute;
-  width: 1px; height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 0.35rem;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form input,

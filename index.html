@@ -608,21 +608,29 @@
       <p class="section-label">Contact</p>
       <div class="contact-grid contact-reveal">
         <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
-        <form class="contact-form" action="https://formsubmit.co/hello@lewislab.io" method="POST">
+        <form class="contact-form" action="https://formsubmit.co/michael@lewislab.io" method="POST">
           <input type="hidden" name="_subject" value="New Lewis Lab website inquiry" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Name" required />
+          <div class="contact-field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="Email" required />
+          <div class="contact-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
 
-          <label for="company">Company</label>
-          <input id="company" name="company" type="text" placeholder="Company" />
+          <div class="contact-field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" />
+          </div>
 
-          <label for="objective">What's the objective?</label>
-          <textarea id="objective" name="objective" placeholder="What's the objective?"></textarea>
+          <div class="contact-field">
+            <label for="objective">What's the objective?</label>
+            <textarea id="objective" name="objective"></textarea>
+          </div>
 
           <button type="submit">Send message</button>
         </form>

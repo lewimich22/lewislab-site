@@ -276,6 +276,44 @@
         font-size: 0.8rem;
       }
     }
+
+    .diagnostic-explainer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(13,13,13,0.1);
+      max-width: 42rem;
+    }
+    .diagnostic-explainer-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 0.5rem;
+    }
+    .diagnostic-explainer h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+    .diagnostic-explainer p:last-child {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--stone);
+      max-width: 60ch;
+    }
+    @media (max-width: 768px) {
+      .diagnostic-explainer {
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+      }
+      .diagnostic-explainer p:last-child {
+        font-size: 0.96rem;
+        line-height: 1.55;
+      }
+    }
   </style>
 </head>
 <body class="diagnostic-page">
@@ -306,6 +344,11 @@
       <h1 class="heading-xl">How clear is your business, really?</h1>
       <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2&ndash;3 minutes.</p>
       <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Start Diagnostic</button>
+      <div class="diagnostic-explainer" aria-labelledby="diagnostic-explainer-heading">
+        <p class="diagnostic-explainer-label">What it evaluates</p>
+        <h2 id="diagnostic-explainer-heading">A quick read on where clarity breaks down.</h2>
+        <p>The Clarity Diagnostic evaluates six areas: Strategy, Reporting, Execution, Growth, Operations, and Systems &amp; Automation. At the end, you receive a composite clarity score, category-level breakdown, weakest area, and recommended review focus.</p>
+      </div>
     </div>
 
     <div id="view-diagnostic" class="section hidden"></div>

@@ -102,7 +102,7 @@
     }
 
     .services .section-label {
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.53);
     }
 
     .services-heading {
@@ -183,7 +183,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.42);
+      color: rgba(255,255,255,0.60);
       margin-bottom: 0.55rem;
     }
 
@@ -300,8 +300,17 @@
     }
 
     .diagnostic-feature .section-label {
-      color: var(--moss);
-      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .diagnostic-feature .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 0.55rem;
+      height: 0.55rem;
+      background: var(--moss);
+      margin-right: 0.65rem;
+      vertical-align: 0.02em;
     }
 
     .diagnostic-feature-heading {

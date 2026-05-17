@@ -518,6 +518,16 @@ footer span {
   max-width: 58ch;
 }
 
+.post-header .post-author {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--stone);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  margin-top: -0.75rem;
+  margin-bottom: 1.25rem;
+}
+
 .post-rule {
   border: none;
   border-top: 1px solid rgba(13,13,13,0.1);

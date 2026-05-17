@@ -318,7 +318,7 @@
     .diagnostic-feature-body {
       font-size: 1rem;
       line-height: 1.7;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.72);
       max-width: 52ch;
     }
 
@@ -347,7 +347,7 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5);
     }
 
     @media (max-width: 768px) {
@@ -364,6 +364,27 @@
         width: auto;
         margin-left: 0;
         margin-right: 0;
+      }
+    }
+
+    .hero-cta,
+    .diagnostic-feature .hero-cta {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .hero-cta:hover,
+      .hero-cta:focus,
+      .hero-cta:active {
+        background: var(--ink);
+        color: var(--white);
+      }
+      .diagnostic-feature .hero-cta:hover,
+      .diagnostic-feature .hero-cta:focus,
+      .diagnostic-feature .hero-cta:active {
+        background: var(--white);
+        color: var(--ink);
       }
     }
   </style>

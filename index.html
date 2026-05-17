@@ -283,6 +283,88 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://lewislab.io/#organization",
+        "name": "Lewis Lab",
+        "url": "https://lewislab.io/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lewislab.io/og-image.png"
+        },
+        "description": "A founder-led advisory practice that helps multi-location businesses identify and fix performance gaps across marketing, operations, reporting, and execution.",
+        "founder": {
+          "@id": "https://lewislab.io/#michael-lewis"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://lewislab.io/#michael-lewis",
+        "name": "Michael Lewis",
+        "jobTitle": "Founder",
+        "worksFor": {
+          "@id": "https://lewislab.io/#organization"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://lewislab.io/#website",
+        "url": "https://lewislab.io/",
+        "name": "Lewis Lab",
+        "publisher": {
+          "@id": "https://lewislab.io/#organization"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://lewislab.io/#professionalservice",
+        "name": "Lewis Lab",
+        "url": "https://lewislab.io/",
+        "provider": {
+          "@id": "https://lewislab.io/#organization"
+        },
+        "founder": {
+          "@id": "https://lewislab.io/#michael-lewis"
+        },
+        "serviceType": "Business Performance Consulting",
+        "areaServed": "US",
+        "description": "Founder-led business performance consulting and 30-day diagnostics for multi-location businesses, dealer groups, healthcare operations, and private companies with lead, conversion, throughput, or process gaps.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Lewis Lab Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "30-Day Performance Diagnostic"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Strategy Development"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Execution Support"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

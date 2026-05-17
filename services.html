@@ -118,10 +118,6 @@
 
     /* ── LAYOUT FOUNDATION ── */
 
-    .services-page main {
-      padding-top: 4.5rem;
-    }
-
     /*
       .sp-container: consistent content container for every section.
       72rem max-width, horizontally centered, side gutters via --pad.
@@ -152,42 +148,6 @@
       width: calc(100% - 2 * var(--pad));
       margin-left: auto;
       margin-right: auto;
-    }
-
-    /* ── HERO ── */
-
-    .services-page .page-hero {
-      padding: 3.5rem 0 3rem;
-      max-width: 56rem;
-    }
-
-    .services-page .page-hero-label {
-      font-family: var(--body);
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--stone);
-      margin-bottom: 1.25rem;
-    }
-
-    .services-page .page-hero h1 {
-      font-family: var(--display);
-      font-size: clamp(2.4rem, 4vw, 4.25rem);
-      font-weight: 700;
-      line-height: 1.04;
-      letter-spacing: -0.035em;
-      color: var(--ink);
-      max-width: 20ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .services-page .page-hero-sub {
-      font-size: 1.1rem;
-      color: var(--stone);
-      line-height: 1.7;
-      max-width: 52ch;
-      margin-bottom: 2rem;
     }
 
     /* ── TWO-COLUMN GRID (The Work, Why Lewis Lab, Contact) ── */
@@ -515,10 +475,6 @@
         padding: 3rem 0;
       }
 
-      .services-page .page-hero {
-        padding: 3rem 0 2.5rem;
-      }
-
       .sp-two-col {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -559,7 +515,7 @@
     }
   </style>
 </head>
-<body class="services-page">
+<body class="services-page internal-page">
 
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="index.html">
@@ -587,16 +543,16 @@
     <article>
 
       <!-- ── HERO ── -->
-      <div class="sp-container">
-        <section class="page-hero reveal" aria-label="Services overview">
-          <p class="page-hero-label">What We Do</p>
-          <h1>Performance Diagnostics for Multi-Location Businesses</h1>
-          <p class="page-hero-sub">Lewis Lab delivers structured 30-day diagnostics and targeted performance consulting for established private businesses. We plug into your data, identify where revenue, leads, time, or capacity are leaking, and define what to do about it.</p>
+      <div class="ll-container">
+        <section class="ll-page-hero reveal" aria-label="Services overview">
+          <p class="ll-page-label">What We Do</p>
+          <h1 class="ll-page-title">Performance Diagnostics for Multi-Location Businesses</h1>
+          <p class="ll-page-sub">Lewis Lab delivers structured 30-day diagnostics and targeted performance consulting for established private businesses. We plug into your data, identify where revenue, leads, time, or capacity are leaking, and define what to do about it.</p>
           <a class="page-hero-cta" href="diagnostic.html">Start with a diagnostic</a>
         </section>
       </div>
 
-      <hr class="sp-rule" />
+      <hr class="ll-page-rule" />
 
       <!-- ── THE WORK ── -->
       <div class="sp-container">

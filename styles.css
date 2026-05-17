@@ -381,6 +381,74 @@ footer span {
 }
 
 
+/* ── INTERNAL PAGE LAYOUT SYSTEM ── */
+.internal-page main {
+  padding-top: 4.5rem;
+}
+
+.ll-container {
+  max-width: 72rem;
+  width: calc(100% - 2 * var(--pad));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ll-page-hero {
+  padding: 3.5rem 0 3rem;
+  max-width: 56rem;
+}
+
+.ll-page-label {
+  font-family: var(--body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 1.25rem;
+}
+
+.ll-page-title {
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 4vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
+}
+
+.ll-page-sub {
+  font-size: 1.1rem;
+  color: var(--stone);
+  line-height: 1.7;
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+
+.ll-page-rule {
+  border: none;
+  border-top: 1px solid rgba(13,13,13,0.1);
+  max-width: 72rem;
+  width: calc(100% - 2 * var(--pad));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ll-section {
+  padding: 4rem 0;
+}
+
+@media (max-width: 768px) {
+  .ll-page-hero {
+    padding: 3rem 0 2.5rem;
+  }
+  .ll-section {
+    padding: 2rem 0 4rem;
+  }
+}
+
 /* ── BLOG LISTING ── */
 .page-header {
   padding: 7rem var(--pad) 3rem;
@@ -422,20 +490,6 @@ footer span {
 }
 
 @media (min-width: 769px) {
-  .page-header {
-    padding: 7rem 0 3rem;
-    max-width: 72rem;
-    width: calc(100% - 2 * var(--pad));
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .blog-section {
-    padding: 3.5rem 0 5rem;
-    max-width: 72rem;
-    width: calc(100% - 2 * var(--pad));
-    margin-left: auto;
-    margin-right: auto;
-  }
   .post-grid {
     grid-template-columns: repeat(2, 1fr);
   }

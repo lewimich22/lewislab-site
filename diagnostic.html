@@ -24,22 +24,9 @@
   <style>
     /* ── DIAGNOSTIC PAGE-SPECIFIC CSS ── */
 
-    main { padding-top: 4.5rem; }
-
     /* Section layout */
     .section { padding: 3.5rem 1.5rem; max-width: 36rem; margin: 0 auto; }
     @media (min-width: 768px) { .section { padding: 3.5rem 3.25rem; } }
-    @media (min-width: 769px) {
-      #view-hero.section-wide {
-        max-width: 72rem;
-        width: calc(100% - 2 * var(--pad));
-        padding: 5rem 0 4rem;
-        margin-left: auto;
-        margin-right: auto;
-        min-height: auto;
-        justify-content: flex-start;
-      }
-    }
     .section-wide { max-width: 64rem; }
 
     /* Typography (diagnostic-specific scale) */
@@ -331,7 +318,7 @@
     }
   </style>
 </head>
-<body class="diagnostic-page">
+<body class="diagnostic-page internal-page">
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="index.html">
       <svg class="nav-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -355,15 +342,17 @@
   </nav>
 
   <main>
-    <div id="view-hero" class="section section-wide" style="display:flex;flex-direction:column;">
-      <h1 class="heading-xl">How clear is your business, really?</h1>
-      <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2&ndash;3 minutes.</p>
-      <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Run the Diagnostic</button>
-      <div class="diagnostic-explainer" aria-labelledby="diagnostic-explainer-heading">
-        <p class="diagnostic-explainer-label">Clarity Diagnostic</p>
-        <h2 id="diagnostic-explainer-heading">Find out if your business is as clear as you think it is.</h2>
-        <p>A structured read across strategy, reporting, execution, growth, operations, and systems. You get a clarity score, category breakdown, weakest area, and recommended focus area immediately.</p>
-        <p>No email required to see the result. If you want Lewis Lab to review it, you can share it at the end. The result is yours either way.</p>
+    <div class="ll-container">
+      <div id="view-hero" class="ll-page-hero" style="display:flex;flex-direction:column;">
+        <h1 class="ll-page-title">How clear is your business, really?</h1>
+        <p class="ll-page-sub">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2&ndash;3 minutes.</p>
+        <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Run the Diagnostic</button>
+        <div class="diagnostic-explainer" aria-labelledby="diagnostic-explainer-heading">
+          <p class="diagnostic-explainer-label">Clarity Diagnostic</p>
+          <h2 id="diagnostic-explainer-heading">Find out if your business is as clear as you think it is.</h2>
+          <p>A structured read across strategy, reporting, execution, growth, operations, and systems. You get a clarity score, category breakdown, weakest area, and recommended focus area immediately.</p>
+          <p>No email required to see the result. If you want Lewis Lab to review it, you can share it at the end. The result is yours either way.</p>
+        </div>
       </div>
     </div>
 

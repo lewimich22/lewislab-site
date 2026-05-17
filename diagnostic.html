@@ -298,18 +298,22 @@
       color: var(--ink);
       margin-bottom: 0.75rem;
     }
-    .diagnostic-explainer p:last-child {
+    .diagnostic-explainer > p:not(.diagnostic-explainer-label) {
       font-size: 1rem;
       line-height: 1.65;
       color: var(--stone);
       max-width: 60ch;
+      margin-bottom: 0.75rem;
+    }
+    .diagnostic-explainer > p:last-child {
+      margin-bottom: 0;
     }
     @media (max-width: 768px) {
       .diagnostic-explainer {
         margin-top: 1.5rem;
         padding-top: 1.25rem;
       }
-      .diagnostic-explainer p:last-child {
+      .diagnostic-explainer > p:not(.diagnostic-explainer-label) {
         font-size: 0.96rem;
         line-height: 1.55;
       }
@@ -333,7 +337,7 @@
     <ul class="nav-links">
       <li class="mobile-hide"><a href="index.html#about">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="index.html#services">Work</a></li>
+      <li><a href="diagnostic.html" aria-current="page">Diagnostic</a></li>
       <li><a href="blog.html">Field Notes</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
@@ -343,11 +347,12 @@
     <div id="view-hero" class="section section-wide" style="min-height:80vh;display:flex;flex-direction:column;justify-content:center;">
       <h1 class="heading-xl">How clear is your business, really?</h1>
       <p class="body-lg mb-7">A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected. Takes about 2&ndash;3 minutes.</p>
-      <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Start Diagnostic</button>
+      <button class="btn-primary" onclick="startDiagnostic()" style="align-self:flex-start;">Run the Diagnostic</button>
       <div class="diagnostic-explainer" aria-labelledby="diagnostic-explainer-heading">
-        <p class="diagnostic-explainer-label">What it evaluates</p>
-        <h2 id="diagnostic-explainer-heading">A quick read on where clarity breaks down.</h2>
-        <p>The Clarity Diagnostic evaluates six areas: Strategy, Reporting, Execution, Growth, Operations, and Systems &amp; Automation. At the end, you receive a composite clarity score, category-level breakdown, weakest area, and recommended review focus.</p>
+        <p class="diagnostic-explainer-label">Clarity Diagnostic</p>
+        <h2 id="diagnostic-explainer-heading">Find out if your business is as clear as you think it is.</h2>
+        <p>A structured read across strategy, reporting, execution, growth, operations, and systems. You get a clarity score, category breakdown, weakest area, and recommended focus area immediately.</p>
+        <p>No email required to see the result. If you want Lewis Lab to review it, you can share it at the end. The result is yours either way.</p>
       </div>
     </div>
 

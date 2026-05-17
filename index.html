@@ -282,6 +282,84 @@
         padding-bottom: 2rem;
       }
     }
+
+    .diagnostic-feature {
+      padding: 3.5rem var(--pad);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .diagnostic-feature-inner {
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .diagnostic-feature .section-label {
+      color: var(--moss);
+      margin-bottom: 1rem;
+    }
+
+    .diagnostic-feature-heading {
+      font-family: var(--display);
+      font-size: clamp(1.65rem, 2.8vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      max-width: 22ch;
+    }
+
+    .diagnostic-feature-body {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      max-width: 52ch;
+    }
+
+    .diagnostic-feature-cta-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .diagnostic-feature .hero-cta {
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .diagnostic-feature .hero-cta:hover,
+    .diagnostic-feature .hero-cta:focus,
+    .diagnostic-feature .hero-cta:active {
+      background: var(--moss);
+      color: var(--white);
+    }
+
+    .diagnostic-feature-note {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    @media (max-width: 768px) {
+      .diagnostic-feature-inner {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .diagnostic-feature-cta-col {
+        align-items: flex-start;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -384,7 +462,7 @@
     <ul class="nav-links">
       <li class="mobile-hide"><a href="#about">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="#services">Work</a></li>
+      <li><a href="diagnostic.html">Diagnostic</a></li>
       <li><a href="blog.html">Field Notes</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -402,7 +480,21 @@
           <span class="mobile-line">performing?</span>
       </h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
-      <a class="hero-cta" href="diagnostic.html">Start with a diagnostic</a>
+      <a class="hero-cta" href="diagnostic.html">Run the Diagnostic</a>
+    </section>
+
+    <section class="diagnostic-feature" aria-labelledby="homepage-diagnostic-heading">
+      <div class="diagnostic-feature-inner">
+        <div>
+          <p class="section-label">Clarity Diagnostic</p>
+          <h2 class="diagnostic-feature-heading" id="homepage-diagnostic-heading">Find out if your business is as clear as you think it is.</h2>
+          <p class="diagnostic-feature-body">Answer 12 questions and get a clarity score, category breakdown, weakest area, and recommended focus area. No email required to see the result.</p>
+        </div>
+        <div class="diagnostic-feature-cta-col">
+          <a class="hero-cta" href="diagnostic.html">Run the Diagnostic</a>
+          <span class="diagnostic-feature-note">The result is yours either way.</span>
+        </div>
+      </div>
     </section>
 
     <hr class="rule" />

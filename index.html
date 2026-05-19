@@ -41,8 +41,8 @@
     /* ── INDEX PAGE-SPECIFIC CSS ── */
 
     .hero {
-      padding: 7rem var(--pad) 4rem;
-      min-height: min(700px, 76vh);
+      padding: 7rem var(--pad) 2.75rem;
+      min-height: min(620px, 66vh);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -284,19 +284,20 @@
     }
 
     .diagnostic-feature {
-      padding: 3.5rem var(--pad);
+      padding: 3.25rem var(--pad);
       background: var(--ink);
       color: var(--white);
+      text-align: center;
     }
 
     .diagnostic-feature-inner {
-      max-width: 860px;
+      max-width: 48rem;
       width: 100%;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2.5rem;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 1.25rem;
     }
 
     .diagnostic-feature .section-label {
@@ -315,28 +316,31 @@
 
     .diagnostic-feature-heading {
       font-family: var(--display);
-      font-size: clamp(1.65rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.9rem, 3vw, 2.75rem);
       font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.03em;
       color: var(--white);
-      margin-bottom: 1rem;
-      max-width: 22ch;
+      margin-bottom: 0;
+      max-width: 20ch;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .diagnostic-feature-body {
       font-size: 1rem;
       line-height: 1.7;
       color: rgba(255,255,255,0.72);
-      max-width: 52ch;
+      max-width: 48ch;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .diagnostic-feature-cta-col {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       gap: 0.75rem;
-      flex-shrink: 0;
     }
 
     .diagnostic-feature .hero-cta {
@@ -357,23 +361,6 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.5);
-    }
-
-    @media (max-width: 768px) {
-      .diagnostic-feature-inner {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-      }
-
-      .diagnostic-feature-cta-col {
-        align-items: flex-start;
-      }
-
-      .diagnostic-feature .hero-cta {
-        width: auto;
-        margin-left: 0;
-        margin-right: 0;
-      }
     }
 
     .hero-cta,
@@ -516,7 +503,6 @@
           <span class="mobile-line">performing?</span>
       </h1>
       <p class="hero-sub">Your vendors report on what they control. Lewis Lab looks at everything. We identify what is working, what is noise, and what is quietly costing you.</p>
-      <a class="hero-cta" href="diagnostic.html">Run the Diagnostic</a>
     </section>
 
     <section class="diagnostic-feature" aria-labelledby="homepage-diagnostic-heading">

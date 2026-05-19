@@ -647,6 +647,42 @@ footer span {
   margin-bottom: 1rem;
 }
 
+.post-body a:not(.post-cta) {
+  color: var(--moss);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.post-body a:not(.post-cta):hover,
+.post-body a:not(.post-cta):focus {
+  color: var(--prussian);
+  text-decoration-color: var(--prussian);
+}
+
+.post-body a[target="_blank"]:not(.post-cta) {
+  color: var(--ink);
+  text-decoration-color: rgba(13, 13, 13, 0.45);
+}
+
+.post-body a[target="_blank"]:not(.post-cta):hover,
+.post-body a[target="_blank"]:not(.post-cta):focus {
+  color: var(--moss);
+  text-decoration-color: var(--moss);
+}
+
+.post-body .post-cta {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.post-body .post-cta:hover,
+.post-body .post-cta:focus,
+.post-body .post-cta:active {
+  color: var(--white);
+  text-decoration: none;
+}
+
 .stat-callout {
   border-left: 3px solid var(--moss);
   padding: 1.25rem 1.5rem;
@@ -670,6 +706,13 @@ footer span {
   text-transform: uppercase;
   color: var(--stone);
   margin-top: 0.4rem;
+}
+
+.stat-callout .callout-source {
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: var(--stone);
 }
 
 .diagnostic-box {

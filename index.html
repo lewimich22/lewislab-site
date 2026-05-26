@@ -418,6 +418,29 @@
       max-width: 20ch;
       color: var(--ink);
     }
+
+    #field-notes .post-grid {
+      grid-template-columns: repeat(3, 1fr);
+      background: none;
+      gap: 1.5rem;
+    }
+
+    #field-notes .post-card {
+      background: var(--parchment);
+    }
+
+    @media (max-width: 900px) {
+      #field-notes .post-grid {
+        grid-template-columns: 1fr;
+        display: block;
+        border-top: 1px solid rgba(13,13,13,0.1);
+        gap: 0;
+      }
+      #field-notes .post-card {
+        background: none;
+        border-bottom: 1px solid rgba(13,13,13,0.1);
+      }
+    }
   </style>
 
   <script type="application/ld+json">

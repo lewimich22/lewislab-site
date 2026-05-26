@@ -33,6 +33,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -1376,20 +1377,14 @@ footer span {
   }
 }
 
-/* ── Anchor offset: fixed nav compensation ── */
-#about,
-#contact {
-  scroll-margin-top: 5rem;
-}
-
+/* ── Global anchor offset: mobile ── */
 @media (max-width: 640px) {
-  #about,
-  #contact {
-    scroll-margin-top: 8.75rem;
+  html {
+    scroll-padding-top: 7rem;
   }
 }
 
-/* ── Field Notes homepage section: spacing ── */
+/* ── Field Notes homepage section ── */
 #field-notes.section {
   padding-top: 2.75rem;
   padding-bottom: 2.75rem;
@@ -1405,4 +1400,13 @@ footer span {
 
 .field-notes-cta-wrap {
   margin-top: 1.5rem;
+}
+
+.field-notes-cta {
+  font-family: var(--body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

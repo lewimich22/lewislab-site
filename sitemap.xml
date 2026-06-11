@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.lewislab.io/</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -20,25 +20,31 @@
   </url>
   <url>
     <loc>https://www.lewislab.io/blog.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lewislab.io/posts/speed-to-lead.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lewislab.io/posts/your-floorplan-bill-is-a-diagnostic.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.lewislab.io/posts/marketing-handoff-layer.html</loc>
-    <lastmod>2026-05-19</lastmod>
+    <lastmod>2026-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.lewislab.io/posts/marketing-reports-are-not-performance-reviews.html</loc>
+    <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

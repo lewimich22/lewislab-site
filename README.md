@@ -42,6 +42,8 @@ Vercel caches the versioned font files for one year. If a font file changes, giv
 
 Short reads on the gaps between strategy, reporting, marketing, operations, and execution. Published at [www.lewislab.io/blog.html](https://www.lewislab.io/blog.html).
 
+The Speed to Lead article includes a dealership lead management diagnostic and links to the dealership engagement. The floorplan and marketing-reporting articles also link to that page. Keep response attempts, two-way contact, appointments, and sales distinct; any invented funnel figures must be labeled illustrative, with clear denominators.
+
 ## Dealership page
 
 The dealership consulting page leads with the path from inquiry to sale and scopes the 30-day diagnostic around one agreed performance question. The process follows the site's Examine / Isolate / Apply approach; deliverables describe the findings, actions, proposed owners, and follow-up measures for a lead-handling engagement. Inventory and store comparisons remain available scopes. The page distinguishes this engagement from the free Clarity Diagnostic.

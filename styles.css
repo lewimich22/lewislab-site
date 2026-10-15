@@ -699,6 +699,9 @@ footer span {
 .post-body .post-cta {
   color: var(--white);
   text-decoration: none;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
 }
 
 .post-body .post-cta:hover,

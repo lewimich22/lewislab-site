@@ -11,7 +11,7 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clarity Diagnostic — Lewis Lab</title>
+  <title>Clarity Diagnostic | Lewis Lab</title>
   <link rel="canonical" href="https://www.lewislab.io/diagnostic.html" />
   <meta name="description" content="A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected." />
   <link rel="icon" type="image/png" href="/favicon.png" />
@@ -643,7 +643,7 @@
         html += `<p class="section-label mb-3">Validation Priorities</p>`;
         html += `<ul style="list-style:none;margin-bottom:1rem;">`;
         validateCats.forEach(cat => {
-          html += `<li style="font-size:1.05rem;color:var(--ink);line-height:1.7;margin-bottom:0.5rem;"><span class="font-semibold">${cat}</span><span style="color:var(--stone);"> &mdash; Scored high, but should be validated against actual reporting, workflows, vendor outputs, or business outcomes.</span></li>`;
+          html += `<li style="font-size:1.05rem;color:var(--ink);line-height:1.7;margin-bottom:0.5rem;"><span class="font-semibold">${cat}</span><span style="color:var(--stone);">: Scored high, but should be validated against actual reporting, workflows, vendor outputs, or business outcomes.</span></li>`;
         });
         html += `</ul></div>`;
       }
@@ -734,7 +734,7 @@
       return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req}${im} /></div>`;
     }
 
-    // GA4 — lead_submit_diagnostic (delegated, form built dynamically)
+    // GA4: lead_submit_diagnostic (delegated, form built dynamically)
     document.addEventListener('submit', function(e) {
       var form = e.target;
       if (form && form.action && form.action.indexOf('web3forms.com') !== -1) {

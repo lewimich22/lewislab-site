@@ -40,6 +40,8 @@ Vercel caches the versioned font files for one year. If a font file changes, giv
 
 ## Field Notes
 
+Site writing rule: do not use em dashes anywhere in site copy, metadata, generated text, or comments. Use periods, commas, colons, or parentheses as appropriate.
+
 Short reads on the gaps between strategy, reporting, marketing, operations, and execution. Published at [www.lewislab.io/blog.html](https://www.lewislab.io/blog.html).
 
 The Speed to Lead article includes a dealership lead management diagnostic and links to the dealership engagement. The floorplan and marketing-reporting articles also link to that page. Keep response attempts, two-way contact, appointments, and sales distinct; any invented funnel figures must be labeled illustrative, with clear denominators.

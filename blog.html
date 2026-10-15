@@ -77,7 +77,7 @@
       <div class="post-grid">
 
         <!-- ===============================================================
-             ADD NEW POSTS HERE — paste a new <article> block as the FIRST
+             ADD NEW POSTS HERE: paste a new <article> block as the FIRST
              child so newest posts appear top-left.
 
              TEMPLATE:
@@ -96,6 +96,18 @@
 
              CATEGORIES: Diagnostics, Strategy, Operations, Data, Marketing, Advisory
              =============================================================== -->
+
+        <article class="post-card reveal">
+          <a class="post-card-inner" href="posts/crm-audit-checklist.html">
+            <div class="post-meta">
+              <time datetime="2026-10-15">October 15, 2026</time>
+              <span class="post-category">Diagnostics</span>
+            </div>
+            <h2 class="post-title">CRM Audit Checklist: Can You Trust Your Pipeline?</h2>
+            <p class="post-excerpt">If every sales meeting starts with an argument about the numbers, start with the records. Eight checks for a pipeline you can use.</p>
+            <span class="post-read-more" aria-hidden="true">Read &rarr;</span>
+          </a>
+        </article>
 
         <article class="post-card reveal">
           <a class="post-card-inner" href="posts/automation-makes-broken-processes-harder-to-see.html">
@@ -189,7 +201,7 @@
     }, { threshold: 0.12 });
     revealItems.forEach((item) => revealObserver.observe(item));
 
-    // GA4 — blog_post_click
+    // GA4: blog_post_click
     (function() {
       function fireEvent(name, params) {
         if (typeof gtag === 'function') {

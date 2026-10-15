@@ -217,6 +217,13 @@ footer span {
 
 
 /* ── TYPOGRAPHY ── */
+.context-link {
+  color: var(--ink);
+  text-underline-offset: 0.2em;
+}
+
+.context-link:hover { color: var(--moss); }
+
 .section-label {
   font-family: var(--body);
   font-size: 0.78rem;

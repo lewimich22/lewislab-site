@@ -21,6 +21,8 @@ This repo holds the source for the Lewis Lab website: a static site built with v
 ```
 index.html          Home
 services.html       Services
+dealership-consulting.html  Dealership consulting engagement
+dealership.css      Styles scoped to the dealership page
 diagnostic.html     Clarity Diagnostic tool
 blog.html           Field Notes index
 posts/              Field Notes articles
@@ -39,6 +41,14 @@ Vercel caches the versioned font files for one year. If a font file changes, giv
 ## Field Notes
 
 Short reads on the gaps between strategy, reporting, marketing, operations, and execution. Published at [www.lewislab.io/blog.html](https://www.lewislab.io/blog.html).
+
+## Dealership page
+
+The dealership consulting page leads with the path from inquiry to sale and scopes the 30-day diagnostic around one agreed performance question. The process follows the site's Examine / Isolate / Apply approach; deliverables describe the findings, actions, proposed owners, and follow-up measures for a lead-handling engagement. Inventory and store comparisons remain available scopes. The page distinguishes this engagement from the free Clarity Diagnostic.
+
+Its experience section presents Michael's prior General Motors work: Denver GMC pickup performance, lead handling, and the regional 3 Truck Strategy planning tool, with the national district manager ranking as supporting context. These are career examples from 2015–2024, not Lewis Lab client results. Copy was checked against the supplied 2026 resume and supporting career conversations. No testimonials or dealership client names are included.
+
+The page uses the existing contact form provider and tags inquiries with their page source. `dealership_review_click` records clicks to the inquiry section; `lead_submit_dealership` records a form submission attempt, not confirmed delivery.
 
 ## Contact
 

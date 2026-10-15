@@ -6,6 +6,23 @@
    ============================================================ */
 
 
+/* Serve the existing variable fonts locally, without a third-party stylesheet. */
+@font-face {
+  font-family: "Host Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/host-grotesk-latin-v5.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/fonts/exo-2-latin-v26.woff2") format("woff2");
+}
+
 /* ── RESET ── */
 *, *::before, *::after {
   box-sizing: border-box;

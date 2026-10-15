@@ -30,6 +30,12 @@ robots.txt          Crawler directives
 vercel.json         Redirect configuration
 ```
 
+## Fonts and loading
+
+Host Grotesk and Exo 2 are served from `assets/fonts/` as Latin variable WOFF2 files. The font licenses are included alongside them. Each page preloads Host Grotesk, the font used for the main content, and `styles.css` declares both families. Keep the pages free of Google Fonts stylesheet links so text does not wait for a separate font service.
+
+Vercel caches the versioned font files for one year. If a font file changes, give it a new filename and update its CSS URL and any preload links together. The Services hero is intentionally visible immediately rather than waiting for a scroll animation.
+
 ## Field Notes
 
 Short reads on the gaps between strategy, reporting, marketing, operations, and execution. Published at [www.lewislab.io/blog.html](https://www.lewislab.io/blog.html).

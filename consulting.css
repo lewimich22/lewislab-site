@@ -6,11 +6,6 @@
 }
 .home-page main:focus,
 .services-page main:focus { outline: none; }
-.home-page :is(.reveal, .reveal-piece, .services-intro-reveal, .contact-reveal),
-.services-page :is(.reveal, .contact-reveal, .problem-card) {
-  opacity: 1;
-  transform: none;
-}
 .consulting-actions {
   display: flex;
   align-items: center;

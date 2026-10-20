@@ -360,57 +360,21 @@ footer span {
 }
 
 
-/* ── REVEAL / SCROLL ANIMATIONS ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+/* Content stays visible until the shared script prepares an entrance. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .reveal.is-pending {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .reveal.is-entering {
+    animation: reveal-in 0.36s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-piece {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.42s ease, transform 0.42s ease;
-}
-
-.service-card.is-visible .reveal-piece {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.service-card.is-visible .reveal-piece:nth-child(1) { transition-delay: 0.08s; }
-.service-card.is-visible .reveal-piece:nth-child(2) { transition-delay: 0.18s; }
-.service-card.is-visible .reveal-piece:nth-child(3) { transition-delay: 0.28s; }
-.service-card.is-visible .reveal-piece:nth-child(4) { transition-delay: 0.38s; }
-
-.services-grid .service-card:nth-child(2) { transition-delay: 0.10s; }
-.services-grid .service-card:nth-child(3) { transition-delay: 0.20s; }
-
-.contact-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.contact-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.services-intro-reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-.services-intro-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -1459,9 +1423,5 @@ main:focus { outline: none; }
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
-  }
-  :is(.reveal, .reveal-piece, .contact-reveal, .services-intro-reveal) {
-    opacity: 1;
-    transform: none;
   }
 }

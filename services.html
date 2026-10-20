@@ -276,26 +276,13 @@
       background: var(--prussian);
       border-top: 2px solid rgba(82,125,69,0.72);
       padding: 1.75rem 1.6rem;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.45s ease, transform 0.45s ease, background 0.25s ease, border-color 0.25s ease;
-    }
-
-    .problem-card.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+      transition: background 0.25s ease, border-color 0.25s ease;
     }
 
     .problem-card:hover {
       background: #223F50;
       border-color: #527D45;
     }
-
-    .problem-card:nth-child(2) { transition-delay: 0.08s; }
-    .problem-card:nth-child(3) { transition-delay: 0.16s; }
-    .problem-card:nth-child(4) { transition-delay: 0.06s; }
-    .problem-card:nth-child(5) { transition-delay: 0.14s; }
-    .problem-card:nth-child(6) { transition-delay: 0.22s; }
 
     .problem-icon {
       width: 40px;
@@ -446,6 +433,7 @@
       }
     }
   </style>
+  <script src="/site-motion.js" defer></script>
 </head>
 <body class="services-page internal-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -495,19 +483,19 @@
           <p class="section-label">Ways to work together</p>
           <h2 class="sp-heading-wide" id="engagements-heading">A clear starting point. Support shaped by the findings.</h2>
           <div class="consulting-offer-grid">
-            <article class="consulting-offer" id="diagnostic" aria-labelledby="diagnostic-service-heading">
+            <article class="consulting-offer reveal" id="diagnostic" aria-labelledby="diagnostic-service-heading">
               <p class="consulting-offer-label">01 / Examine</p>
               <h3 id="diagnostic-service-heading">30-day performance diagnostic</h3>
               <p>Agree on the business priorities and scope, then review the relevant data and processes. The scope can cover lead response, conversion, inventory, reporting, or handoffs between teams.</p>
               <p><strong>You get:</strong> findings, a prioritized action plan, and recommended next steps tied to the agreed scope.</p>
             </article>
-            <article class="consulting-offer" id="strategy" aria-labelledby="strategy-service-heading">
+            <article class="consulting-offer reveal" id="strategy" aria-labelledby="strategy-service-heading">
               <p class="consulting-offer-label">02 / Isolate</p>
               <h3 id="strategy-service-heading">Strategy advisory</h3>
               <p>Use the findings to decide what to change, what to measure, and in what order. Align marketing, vendor activity, and operating priorities with the capacity of your team.</p>
               <p><strong>You get:</strong> a practical roadmap built around the issues that matter to your business.</p>
             </article>
-            <article class="consulting-offer" id="execution" aria-labelledby="execution-service-heading">
+            <article class="consulting-offer reveal" id="execution" aria-labelledby="execution-service-heading">
               <p class="consulting-offer-label">03 / Apply</p>
               <h3 id="execution-service-heading">Execution support</h3>
               <p>Help your team put the priorities into practice. Review progress, pressure-test decisions, and adjust the approach as the operating picture changes.</p>
@@ -553,7 +541,7 @@
           <h2 class="problems-heading" id="problems-heading">If any of this sounds familiar, it is worth a look.</h2>
           <div class="problems-grid">
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <path d="M8 36 L20 24 L28 30 L40 16" />
@@ -564,7 +552,7 @@
               <p class="problem-text">Leads are coming in, but conversion is weak</p>
             </div>
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <circle cx="24" cy="24" r="10" />
@@ -578,7 +566,7 @@
               <p class="problem-text">Response times are inconsistent across teams or locations</p>
             </div>
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <rect x="8" y="10" width="32" height="24" rx="2" />
@@ -590,7 +578,7 @@
               <p class="problem-text">Marketing reports show activity, but not business impact</p>
             </div>
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <rect x="10" y="28" width="6" height="12" />
@@ -602,7 +590,7 @@
               <p class="problem-text">Inventory, capacity, or service throughput is limiting growth</p>
             </div>
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <path d="M14 24 H34" />
@@ -616,7 +604,7 @@
               <p class="problem-text">Teams are working hard, but process hand-offs are breaking down</p>
             </div>
 
-            <div class="problem-card">
+            <div class="problem-card reveal">
               <div class="problem-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48">
                   <path d="M10 38 L24 10 L38 38 Z" />
@@ -703,7 +691,7 @@
       <div class="sp-container">
         <section class="sp-section" id="contact" aria-labelledby="contact-heading">
           <p class="section-label">Get in Touch</p>
-          <div class="contact-grid contact-reveal">
+          <div class="contact-grid">
             <div>
               <h2 class="contact-heading" id="contact-heading">Stop guessing. Start knowing.</h2>
               <p class="contact-sub">Tell us where results are falling short, what your team has tried, and which decisions need a clearer answer. We can discuss whether a consulting diagnostic is a useful next step.</p>

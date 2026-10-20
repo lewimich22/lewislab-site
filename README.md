@@ -38,6 +38,8 @@ Host Grotesk and Exo 2 are served from `assets/fonts/` as Latin variable WOFF2 f
 
 Vercel caches the versioned font files for one year. If a font file changes, give it a new filename and update its CSS URL and any preload links together. The Services hero is intentionally visible immediately rather than waiting for a scroll animation.
 
+Section and card entrances use the shared `site-motion.js` script and `.reveal` class: one 10px rise and fade over 360ms, with no stagger inside cards. Keep hero content, navigation, forms, and article text immediately visible. Content is visible without JavaScript or IntersectionObserver, in print, and with reduced motion enabled. Keyboard focus and direct section links reveal their targets immediately; content already in the viewport does not animate on page load.
+
 ## Field Notes
 
 Site writing rule: do not use em dashes anywhere in site copy, metadata, generated text, or comments. Use periods, commas, colons, or parentheses as appropriate.

@@ -364,17 +364,17 @@ footer span {
 @media screen and (prefers-reduced-motion: no-preference) {
   .reveal.is-pending {
     opacity: 0;
-    transform: translateY(10px);
+    translate: 0 8px;
   }
 
   .reveal.is-entering {
-    animation: reveal-in 0.36s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    animation: reveal-in 0.48s cubic-bezier(0.22, 0.61, 0.36, 1) both;
   }
 }
 
 @keyframes reveal-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 8px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 
@@ -1055,11 +1055,10 @@ footer span {
   background: var(--prussian);
   border-top: 2px solid rgba(82,125,69,0.72);
   padding: 2.1rem 1.8rem;
-  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
   background: #223F50;
   border-color: #527D45;
 }
@@ -1077,11 +1076,10 @@ footer span {
   height: 48px;
   color: rgba(255,255,255,0.86);
   flex: 0 0 48px;
-  transition: transform 0.25s ease, color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .service-card:hover .service-icon {
-  transform: translateY(-2px);
   color: var(--white);
 }
 

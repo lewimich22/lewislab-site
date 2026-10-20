@@ -4,11 +4,12 @@
   if (motionPreference.matches || !('IntersectionObserver' in window)) return;
 
   const pending = new Set();
+  const revealAhead = 80;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) reveal(entry.target, true);
     });
-  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+  }, { threshold: 0, rootMargin: `0px 0px ${revealAhead}px 0px` });
 
   function reveal(element, animate) {
     if (!pending.delete(element)) return;
@@ -18,10 +19,9 @@
   }
 
   function revealContaining(target) {
-    document.querySelectorAll('.reveal').forEach((element) => {
+    pending.forEach((element) => {
       if (!element.contains(target)) return;
       reveal(element, false);
-      element.classList.remove('is-entering');
     });
   }
 
@@ -34,10 +34,14 @@
     }
   }
 
-  document.querySelectorAll('.reveal').forEach((element) => {
-    // Never hide content already visible, above the viewport, or being used.
-    if (element.getBoundingClientRect().top < window.innerHeight ||
-        element.contains(document.activeElement)) return;
+  // Read all positions before changing classes, avoiding repeated layout work.
+  // Content near the viewport stays visible from the start.
+  const viewportEdge = window.innerHeight + revealAhead;
+  const offscreen = Array.from(document.querySelectorAll('.reveal')).filter((element) => {
+    return element.getBoundingClientRect().top > viewportEdge &&
+      !element.contains(document.activeElement);
+  });
+  offscreen.forEach((element) => {
     pending.add(element);
     element.classList.add('is-pending');
     observer.observe(element);

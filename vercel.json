@@ -1,6 +1,15 @@
 {
   "headers": [
     {
+      "source": "/assets/documents/lewis-lab-sample-performance-diagnostic.pdf",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
       "source": "/assets/fonts/(.*)\\.woff2",
       "headers": [
         {

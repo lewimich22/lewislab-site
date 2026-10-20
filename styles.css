@@ -52,6 +52,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   scroll-padding-top: 4rem;
+  text-decoration-skip-ink: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -224,6 +225,8 @@ footer span {
 }
 
 .context-link:hover { color: var(--moss-text); }
+
+.report-link { white-space: nowrap; }
 
 .section-label {
   font-family: var(--body);

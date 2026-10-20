@@ -4,12 +4,14 @@
   if (motionPreference.matches || !('IntersectionObserver' in window)) return;
 
   const pending = new Set();
-  const revealAhead = 80;
+  const visibleThreshold = 0.05;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) reveal(entry.target, true);
+      if (entry.isIntersecting && entry.intersectionRatio >= visibleThreshold) {
+        reveal(entry.target, true);
+      }
     });
-  }, { threshold: 0, rootMargin: `0px 0px ${revealAhead}px 0px` });
+  }, { threshold: visibleThreshold, rootMargin: '0px' });
 
   function reveal(element, animate) {
     if (!pending.delete(element)) return;
@@ -35,10 +37,10 @@
   }
 
   // Read all positions before changing classes, avoiding repeated layout work.
-  // Content near the viewport stays visible from the start.
-  const viewportEdge = window.innerHeight + revealAhead;
+  // Content already on screen stays visible from the start.
+  const viewportEdge = window.innerHeight;
   const offscreen = Array.from(document.querySelectorAll('.reveal')).filter((element) => {
-    return element.getBoundingClientRect().top > viewportEdge &&
+    return element.getBoundingClientRect().top >= viewportEdge &&
       !element.contains(document.activeElement);
   });
   offscreen.forEach((element) => {

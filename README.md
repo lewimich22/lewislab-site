@@ -40,6 +40,8 @@ Vercel caches the versioned font files for one year. If a font file changes, giv
 
 The homepage embeds the existing shared and consulting styles to avoid two render-blocking stylesheet requests. Other pages continue to use the shared files. After editing `styles.css` or `consulting.css`, run `node scripts/sync-home-styles.mjs` to refresh the generated block in `index.html`. `node scripts/sync-home-styles.mjs --check` verifies it is current. Edit the shared sources rather than the generated block; no build is needed to serve or deploy the site.
 
+The homepage queues GA4 configuration immediately and loads the Google tag after a rendering opportunity. Hidden pages load it immediately, including if visibility changes while waiting, so tracking does not depend on a user interaction or an idle timer. Keep the existing measurement ID and inquiry event, and preserve the queued events when adjusting loading.
+
 Section and card entrances use the shared `site-motion.js` script and `.reveal` class: one 10px rise and fade over 360ms, with no stagger inside cards. Keep hero content, navigation, forms, and article text immediately visible. Content is visible without JavaScript or IntersectionObserver, in print, and with reduced motion enabled. Keyboard focus and direct section links reveal their targets immediately; content already in the viewport does not animate on page load.
 
 ## Field Notes

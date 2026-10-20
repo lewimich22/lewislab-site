@@ -1578,7 +1578,6 @@ main:focus { outline: none; }
   </style>
   <!-- HOME STYLES END -->
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXWQ0990PC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -1946,5 +1945,31 @@ main:focus { outline: none; }
     })();
   </script>
 
+  <script>
+    // Keep tracking queued from the start and give visible content a paint first.
+    (function () {
+      var started = false;
+      function loadAnalytics() {
+        if (started) return;
+        started = true;
+        document.removeEventListener('visibilitychange', loadWhenHidden);
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SXWQ0990PC';
+        document.head.appendChild(script);
+      }
+      function loadWhenHidden() {
+        if (document.visibilityState === 'hidden') loadAnalytics();
+      }
+      document.addEventListener('visibilitychange', loadWhenHidden);
+      if (document.visibilityState === 'hidden') {
+        loadAnalytics();
+      } else {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(loadAnalytics);
+        });
+      }
+    })();
+  </script>
 </body>
 </html>

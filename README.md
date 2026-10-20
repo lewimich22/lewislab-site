@@ -38,6 +38,8 @@ Host Grotesk and Exo 2 are served from `assets/fonts/` as Latin variable WOFF2 f
 
 Vercel caches the versioned font files for one year. If a font file changes, give it a new filename and update its CSS URL and any preload links together. The Services hero is intentionally visible immediately rather than waiting for a scroll animation.
 
+The homepage embeds the existing shared and consulting styles to avoid two render-blocking stylesheet requests. Other pages continue to use the shared files. After editing `styles.css` or `consulting.css`, run `node scripts/sync-home-styles.mjs` to refresh the generated block in `index.html`. `node scripts/sync-home-styles.mjs --check` verifies it is current. Edit the shared sources rather than the generated block; no build is needed to serve or deploy the site.
+
 Section and card entrances use the shared `site-motion.js` script and `.reveal` class: one 10px rise and fade over 360ms, with no stagger inside cards. Keep hero content, navigation, forms, and article text immediately visible. Content is visible without JavaScript or IntersectionObserver, in print, and with reduced motion enabled. Keyboard focus and direct section links reveal their targets immediately; content already in the viewport does not animate on page load.
 
 ## Field Notes

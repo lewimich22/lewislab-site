@@ -4,7 +4,7 @@
 
 Live site: [https://www.lewislab.io](https://www.lewislab.io)
 
-Lewis Lab is a performance diagnostic and advisory practice for multi-location businesses. Vendors report on what they control. Lewis Lab looks at the whole operation, separates performance from noise, and turns the findings into focused action across marketing, operations, reporting, and execution.
+Lewis Lab is a business performance consulting practice for established businesses. Vendors report on what they control. Lewis Lab looks at the whole operation, separates performance from noise, and turns the findings into focused action across marketing, operations, reporting, and execution.
 
 ## What Lewis Lab does
 
@@ -12,7 +12,7 @@ Lewis Lab is a performance diagnostic and advisory practice for multi-location b
 - **Strategy.** Leverage points built for your specific market, team, and execution capacity. No generic playbooks.
 - **Execution support.** Staying close to the work, tracking progress, and keeping decisions tied to measurable outcomes.
 
-Primary focus is multi-location operators, with deep work in automotive dealer groups.
+Primary focus is established businesses and multi-location operators with a performance question to resolve. Keep the home and services pages focused on business performance across industries. Automotive is one industry example; dealership-specific detail belongs on the dedicated dealership consulting page.
 
 ## About this repository
 
@@ -57,3 +57,9 @@ The page uses the existing contact form provider and tags inquiries with their p
 ## Contact
 
 Lewis Lab is operated by Michael Lewis. Reach out through [www.lewislab.io](https://www.lewislab.io).
+
+## Shared page standards
+
+Keep the approved home and services copy and existing palette intact during technical maintenance. Every page uses the shared skip link, a focusable main landmark, one visible page heading, and reduced motion support. Each indexable page needs a unique title and description, its production canonical URL, social metadata, and structured data that matches the visible content. Utility pages remain out of the sitemap and use noindex. The static 404.html page uses root-relative links so it works for missing nested paths on Vercel.
+
+The Clarity Diagnostic is a self-assessment. It does not inspect company records. Preserve its questions and scoring when changing its interface, and preserve the contact provider, field names, and submission settings. Test the full questionnaire and optional review form without sending a submission. Update sitemap dates and article modification dates only when the corresponding content or structured data has materially changed.

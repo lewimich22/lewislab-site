@@ -95,10 +95,11 @@
 .dealership-page .dc-deliverables dd { margin: 0; color: var(--stone); line-height: 1.7; max-width: 65ch; }
 .dealership-page .dc-scope-note { border-left: 3px solid var(--moss); padding-left: 1rem; margin-top: 1.25rem; font-size: 0.9rem; color: var(--stone); max-width: 75ch; }
 .dealership-page .dc-experience { border-top: 1px solid rgba(13,13,13,0.15); }
-.dealership-page .dc-experience-intro { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: start; }
-.dealership-page .dc-experience-bio p { color: var(--stone); line-height: 1.75; }
+.dealership-page .dc-experience-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: end; }
+.dealership-page .dc-experience-intro .dc-heading { margin-bottom: 0; }
+.dealership-page .dc-experience-bio p { color: var(--ink); line-height: 1.7; max-width: 55ch; }
 .dealership-page .dc-experience-bio p + p { margin-top: 0.8rem; }
-.dealership-page .dc-proof-points { display: grid; grid-template-columns: 1fr 1.4fr; margin-top: 2rem; padding-block: 1.5rem; border-block: 1px solid rgba(13,13,13,0.15); }
+.dealership-page .dc-proof-points { display: grid; grid-template-columns: 1fr 1.3fr 1fr; margin-top: 2.5rem; padding-block: 1.5rem; border-block: 1px solid rgba(13,13,13,0.15); }
 .dealership-page .dc-proof-points > div { display: flex; flex-direction: column; padding-inline: 1.75rem; border-left: 1px solid rgba(13,13,13,0.15); }
 .dealership-page .dc-proof-points > div:first-child { padding-left: 0; border-left: 0; }
 .dealership-page .dc-proof-points > div:last-child { padding-right: 0; }
@@ -107,14 +108,13 @@
 .dealership-page .dc-proof-points dd span { color: var(--moss); font-size: 0.65em; }
 .dealership-page .dc-proof-points .dc-metric-context { color: var(--stone); font-size: 0.78rem; font-weight: 400; letter-spacing: normal; line-height: 1.6; margin: 0; }
 .dealership-page .dc-proof-context { color: var(--stone); font-size: 0.78rem; max-width: 100ch; margin-top: 1rem; line-height: 1.65; }
-.dealership-page .dc-experience-stories { margin-top: 2.5rem; }
-.dealership-page .dc-experience-story { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; padding-block: 1.75rem; border-top: 1px solid rgba(13,13,13,0.15); }
-.dealership-page .dc-story-label { color: #456b39; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.65rem; }
-.dealership-page .dc-experience-story h3 { max-width: 27ch; font-size: clamp(1.35rem, 2vw, 1.7rem); }
-.dealership-page .dc-experience-story-secondary h3 { font-size: 1.25rem; }
-.dealership-page .dc-experience-story-secondary .dc-story-body { font-size: 0.92rem; }
-.dealership-page .dc-story-body p { color: var(--stone); line-height: 1.75; }
-.dealership-page .dc-story-body .dc-story-result { color: var(--ink); margin-top: 0.85rem; }
+.dealership-page .dc-experience-stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 2rem; border-block: 1px solid rgba(13,13,13,0.15); }
+.dealership-page .dc-experience-story { display: flex; flex-direction: column; gap: 1.25rem; padding: 2rem 2.5rem 2rem 0; min-width: 0; }
+.dealership-page .dc-experience-story + .dc-experience-story { border-left: 1px solid rgba(13,13,13,0.15); padding: 2rem 0 2rem 2.5rem; }
+.dealership-page .dc-story-label { color: #456b39; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.dealership-page .dc-experience-story h3 { font-size: clamp(1.4rem, 2.2vw, 1.8rem); line-height: 1.2; margin-bottom: 0; }
+.dealership-page .dc-story-body p { color: var(--stone); line-height: 1.65; max-width: 54ch; }
+.dealership-page .dc-story-body .dc-story-result { color: var(--ink); margin-top: 1rem; font-weight: 500; }
 .dealership-page .dc-experience-credit { color: var(--stone); font-size: 0.78rem; line-height: 1.65; margin-top: 0.75rem; }
 .dealership-page .dc-related { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 .dealership-page .dc-note { display: block; padding: 1.5rem; border: 1px solid rgba(13,13,13,0.15); color: var(--ink); text-decoration: none; }
@@ -149,13 +149,15 @@
   .dealership-page .dc-grid,
   .dealership-page .dc-related,
   .dealership-page .dc-experience-intro,
-  .dealership-page .dc-experience-story,
+  .dealership-page .dc-experience-stories,
   .dealership-page .dc-contact-grid { grid-template-columns: 1fr; gap: 1.75rem; }
   .dealership-page .dc-proof-points { grid-template-columns: 1fr; margin-top: 2rem; padding-block: 0; }
   .dealership-page .dc-proof-points > div { padding: 1.25rem 0; border-left: 0; border-top: 1px solid rgba(13,13,13,0.15); }
   .dealership-page .dc-proof-points > div:first-child { border-top: 0; }
   .dealership-page .dc-proof-points dd { font-size: 2.5rem; }
-  .dealership-page .dc-experience-story { gap: 0.75rem; }
+  .dealership-page .dc-experience-stories { gap: 0; }
+  .dealership-page .dc-experience-story { gap: 1rem; padding: 1.5rem 0; }
+  .dealership-page .dc-experience-story + .dc-experience-story { border-left: 0; border-top: 1px solid rgba(13,13,13,0.15); padding: 1.5rem 0; }
   .dealership-page .dc-deliverables > div { grid-template-columns: 1fr; gap: 0.6rem; }
   .dealership-page .dc-actions { align-items: flex-start; flex-direction: column; }
 }

@@ -14,6 +14,19 @@
   <title>Clarity Diagnostic | Lewis Lab</title>
   <link rel="canonical" href="https://www.lewislab.io/diagnostic.html" />
   <meta name="description" content="A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected." />
+
+  <meta property="og:title" content="Clarity Diagnostic | Lewis Lab" />
+  <meta property="og:description" content="A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.lewislab.io/diagnostic.html" />
+  <meta property="og:site_name" content="Lewis Lab" />
+  <meta property="og:image" content="https://www.lewislab.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Clarity Diagnostic | Lewis Lab" />
+  <meta name="twitter:description" content="A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected." />
+  <meta name="twitter:image" content="https://www.lewislab.io/og-image.png" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preload" href="/assets/fonts/host-grotesk-latin-v5.woff2" as="font" type="font/woff2" crossorigin />
@@ -176,7 +189,7 @@
     @media (min-width: 768px) { .breakdown-status { margin-left: 12rem; } }
 
     .status-ink { color: var(--ink); }
-    .status-moss { color: var(--moss); }
+    .status-moss { color: var(--moss-text); }
     .status-prussian { color: var(--prussian); }
     .status-stone { color: var(--stone); }
 
@@ -199,7 +212,6 @@
       background: #fff;
       border: 1px solid rgba(13,13,13,0.15);
       transition: border-color 0.2s;
-      outline: none;
     }
     .form-input:focus, .form-textarea:focus { border-color: rgba(13,13,13,0.4); }
     .form-textarea { resize: none; }
@@ -315,8 +327,26 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.lewislab.io/diagnostic.html#webpage",
+  "url": "https://www.lewislab.io/diagnostic.html",
+  "name": "Clarity Diagnostic | Lewis Lab",
+  "description": "A short diagnostic to identify where strategy, execution, reporting, and growth may be disconnected.",
+  "isPartOf": {
+    "@id": "https://www.lewislab.io/#website"
+  },
+  "about": {
+    "@id": "https://www.lewislab.io/#organization"
+  }
+}
+  </script>
 </head>
 <body class="diagnostic-page internal-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="/">
       <svg class="nav-logo-mark" viewBox="0 0 543.88 699.28" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -339,7 +369,7 @@
     </ul>
   </nav>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <div class="ll-container">
       <div id="view-hero" class="ll-page-hero" style="display:flex;flex-direction:column;">
         <h1 class="ll-page-title">How clear is your business, really?</h1>
@@ -429,8 +459,17 @@
       return nav ? nav.offsetHeight : 0;
     }
 
+    function scrollBehavior() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    }
+
+    function focusElement(id) {
+      const element = document.getElementById(id);
+      if (element) element.focus({ preventScroll: true });
+    }
+
     function scrollBelowNav() {
-      window.scrollTo({ top: navOffset(), behavior: 'smooth' });
+      window.scrollTo({ top: navOffset(), behavior: scrollBehavior() });
     }
 
     function showView(id) {
@@ -454,6 +493,7 @@
       currentStep = 0;
       showView('view-diagnostic');
       renderDiagnostic();
+      focusElement('diagnostic-step-heading');
     }
 
     // Diagnostic
@@ -473,9 +513,9 @@
       // Progress
       html += `<div class="mb-8">`;
       html += `<div style="display:flex;align-items:center;justify-content:flex-start;margin-bottom:0.75rem;">`;
-      html += `<p class="text-sm font-semibold" style="color:var(--ink);">Step ${step} of ${TOTAL_STEPS}</p>`;
+      html += `<h1 id="diagnostic-step-heading" tabindex="-1" class="text-sm font-semibold" style="color:var(--ink);">Step ${step} of ${TOTAL_STEPS}: ${cat}</h1>`;
       html += `</div>`;
-      html += `<div class="progress-bar">`;
+      html += `<div class="progress-bar" aria-hidden="true">`;
       for (let i = 0; i < TOTAL_STEPS; i++) {
         html += `<div class="progress-segment${i < step ? ' filled' : ''}"></div>`;
       }
@@ -483,24 +523,24 @@
 
       // Questions
       catQuestions.forEach(q => {
-        html += `<div class="mb-10">`;
-        html += `<p style="font-size:1.05rem;color:var(--ink);line-height:1.6;margin-bottom:1rem;">${q.text}</p>`;
+        html += `<div class="mb-10" role="group" aria-labelledby="question-${q.id}">`;
+        html += `<p id="question-${q.id}" style="font-size:1.05rem;color:var(--ink);line-height:1.6;margin-bottom:1rem;">${q.text}</p>`;
         html += `<div class="rating-group"><div class="rating-buttons">`;
         for (let r = 1; r <= 5; r++) {
           const active = answers[q.id] === r ? ' active' : '';
-          html += `<button class="rating-btn${active}" onclick="rate(${q.id},${r})">${r}</button>`;
+          html += `<button id="rating-${q.id}-${r}" type="button" class="rating-btn${active}" aria-pressed="${answers[q.id] === r}" aria-label="${r} of 5" onclick="rate(${q.id},${r})">${r}</button>`;
         }
         html += `</div><div class="rating-labels"><span class="rating-label">Disagree</span><span class="rating-label">Agree</span></div></div>`;
         html += `</div>`;
       });
 
       // Evidence
-      html += `<div style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(13,13,13,0.08);">`;
-      html += `<p style="font-size:0.92rem;color:var(--ink);line-height:1.6;margin-bottom:0.75rem;">What are these answers mainly based on?</p>`;
+      html += `<div role="group" aria-labelledby="evidence-question" style="margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(13,13,13,0.08);">`;
+      html += `<p id="evidence-question" style="font-size:0.92rem;color:var(--ink);line-height:1.6;margin-bottom:0.75rem;">What are these answers mainly based on?</p>`;
       html += `<div style="display:flex;flex-wrap:wrap;gap:0.5rem;">`;
       evidenceOptions.forEach(opt => {
         const active = evidence[cat] === opt.value ? ' active' : '';
-        html += `<button class="evidence-btn${active}" onclick="setEvidence('${opt.value}')">${opt.label}</button>`;
+        html += `<button id="evidence-${opt.value}" type="button" class="evidence-btn${active}" aria-pressed="${evidence[cat] === opt.value}" onclick="setEvidence('${opt.value}')">${opt.label}</button>`;
       });
       html += `</div></div>`;
 
@@ -520,18 +560,21 @@
     function rate(id, rating) {
       answers[id] = rating;
       renderDiagnostic();
+      focusElement(`rating-${id}-${rating}`);
     }
 
     function setEvidence(value) {
       const cat = categories[currentStep];
       evidence[cat] = value;
       renderDiagnostic();
+      focusElement(`evidence-${value}`);
     }
 
     function nextStep() {
       if (currentStep < TOTAL_STEPS - 1) {
         currentStep++;
         renderDiagnostic();
+        focusElement('diagnostic-step-heading');
         scrollBelowNav();
       }
     }
@@ -540,6 +583,7 @@
       if (currentStep > 0) {
         currentStep--;
         renderDiagnostic();
+        focusElement('diagnostic-step-heading');
         scrollBelowNav();
       }
     }
@@ -575,6 +619,7 @@
     function viewResults() {
       showView('view-results');
       renderResults();
+      focusElement('diagnostic-results-heading');
     }
 
     function renderResults() {
@@ -594,7 +639,7 @@
       let html = '';
 
       html += `<p class="section-label mb-2">Lewis Lab</p>`;
-      html += `<h1 class="heading-lg" style="margin-bottom:1rem;">Your Clarity Snapshot</h1>`;
+      html += `<h1 id="diagnostic-results-heading" tabindex="-1" class="heading-lg" style="margin-bottom:1rem;">Your Clarity Snapshot</h1>`;
       html += `<p style="font-size:0.84rem;color:var(--stone);line-height:1.6;margin-bottom:2.5rem;">Scores reflect self-reported clarity. Lewis Lab uses the evidence check to identify what should be validated against real reporting, workflows, vendor outputs, and outcomes.</p>`;
 
       // Score box
@@ -704,7 +749,7 @@
 
       let html = '';
       html += `<div style="border-top:1px solid rgba(13,13,13,0.1);padding-top:2.5rem;margin-top:2rem;">`;
-      html += `<h2 style="font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:0.75rem;">Request a Review</h2>`;
+      html += `<h2 id="review-form-heading" tabindex="-1" style="font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:0.75rem;">Request a Review</h2>`;
       html += `<p style="font-size:0.92rem;color:var(--stone);line-height:1.65;margin-bottom:2rem;">Share your result and I\u2019ll review where clarity appears strongest, where validation is needed, and where Lewis Lab could help.</p>`;
       html += `<form action="https://api.web3forms.com/submit" method="POST">`;
       html += `<input type="hidden" name="access_key" value="22defc91-7e99-48cc-9825-85feae08815f">`;
@@ -720,18 +765,22 @@
       html += formField('Business name', 'Business Name', 'text', true);
       html += formField('Website', 'Website', 'text', false, 'url');
       html += formField('Email', 'Email', 'email', true);
-      html += `<div class="form-field"><label class="form-label" for="What Prompted You">What prompted you to take the diagnostic?</label><textarea id="What Prompted You" name="What Prompted You" rows="3" class="form-textarea"></textarea></div>`;
+      html += `<div class="form-field"><label class="form-label" for="review-context">What prompted you to take the diagnostic?</label><textarea id="review-context" name="What Prompted You" rows="3" class="form-textarea"></textarea></div>`;
       html += `<button type="submit" class="btn-primary w-full text-center mt-2">Submit</button>`;
       html += `</form></div>`;
 
       section.innerHTML = html;
-      section.scrollIntoView({ behavior: 'smooth' });
+      focusElement('review-form-heading');
+      section.scrollIntoView({ behavior: scrollBehavior() });
     }
 
     function formField(label, name, type, required, inputmode) {
+      const id = 'review-' + name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+      const autocomplete = { Name: 'name', 'Business Name': 'organization', Website: 'url', Email: 'email' }[name];
+      const ac = autocomplete ? ` autocomplete="${autocomplete}"` : '';
       const req = required ? ' required' : '';
       const im = inputmode ? ` inputmode="${inputmode}"` : '';
-      return `<div class="form-field"><label class="form-label" for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" class="form-input"${req}${im} /></div>`;
+      return `<div class="form-field"><label class="form-label" for="${id}">${label}</label><input id="${id}" name="${name}" type="${type}" class="form-input"${req}${im}${ac} /></div>`;
     }
 
     // GA4: lead_submit_diagnostic (delegated, form built dynamically)

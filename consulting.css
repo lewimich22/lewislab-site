@@ -1,0 +1,146 @@
+/* Styles for the home and services pages. */
+.home-page :focus-visible,
+.services-page :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+.home-page main:focus,
+.services-page main:focus { outline: none; }
+.home-page :is(.reveal, .reveal-piece, .services-intro-reveal, .contact-reveal),
+.services-page :is(.reveal, .contact-reveal, .problem-card) {
+  opacity: 1;
+  transform: none;
+}
+.consulting-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem 1.75rem;
+}
+.home-page .hero .consulting-actions { justify-content: center; }
+.consulting-actions :is(.hero-cta, .page-hero-cta) {
+  white-space: normal;
+  text-align: center;
+  min-height: 44px;
+}
+.consulting-secondary,
+.consulting-actions .context-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-underline-offset: 0.25em;
+}
+.consulting-secondary:hover,
+.consulting-actions .context-link:hover { color: var(--moss-text); }
+.home-page .hero .section-label { margin-bottom: 1.25rem; }
+.home-page .service-card {
+  display: flex;
+  flex-direction: column;
+}
+.home-page .service-desc { color: #D2DADF; }
+.home-page .services .section-label,
+.home-page .service-method { color: #C1CCD2; }
+.home-page .service-detail-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  align-self: flex-start;
+  padding-top: 1rem;
+  margin-top: auto;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  text-underline-offset: 0.25em;
+}
+.consulting-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.consulting-offer {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-top: 3px solid var(--moss);
+  background: var(--white);
+  scroll-margin-top: 6rem;
+}
+.consulting-offer-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--stone);
+  margin-bottom: 1rem;
+}
+.consulting-offer h3 {
+  font-size: 1.45rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+.consulting-offer p:not(.consulting-offer-label) {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--stone);
+  margin-bottom: 1rem;
+}
+.consulting-offer > p:last-child { margin-bottom: 0; }
+.consulting-offer strong { color: var(--ink); }
+.consulting-offer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  align-self: flex-start;
+  margin-top: auto;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.services-page .consulting-offers .sp-heading-wide { max-width: 28ch; }
+.services-page .consulting-offers .sp-body-note { max-width: 80ch; }
+.services-page .sp-intro:not(:last-of-type) { margin-bottom: 1.25rem; }
+.services-page .problems-section .section-label { color: #C1CCD2; }
+.services-page .problem-text { color: #D2DADF; }
+.services-page .faq-section { max-width: 52rem; }
+.consulting-faq { border-bottom: 1px solid rgba(13,13,13,0.15); }
+.consulting-faq summary {
+  padding: 1.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.consulting-faq summary::marker { color: var(--moss); }
+.consulting-faq p {
+  padding: 0 0 1.5rem;
+  color: var(--stone);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+@media (min-width: 769px) {
+  .home-page .hero { padding-top: 8rem; padding-bottom: 3.5rem; }
+  .home-page .hero-headline { max-width: 66rem; }
+  .home-page .hero-sub { max-width: 63ch; }
+}
+@media (max-width: 1000px) and (min-width: 769px) {
+  .consulting-offer-grid { gap: 1rem; }
+  .consulting-offer { padding: 1.25rem; }
+}
+@media (max-width: 768px) {
+  .home-page .hero .consulting-actions { justify-content: flex-start; }
+  .home-page .hero .hero-cta { margin: 0; }
+  .consulting-offer-grid { grid-template-columns: 1fr; }
+  .consulting-offer { scroll-margin-top: 8rem; }
+  .consulting-actions { gap: 0.5rem 1.25rem; }
+  .home-page .diagnostic-feature .hero-cta { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .home-page *, .services-page * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
